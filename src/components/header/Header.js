@@ -12,11 +12,17 @@ function Header() {
         </Link>
         <nav>
           <ul className="flex items-center space-x-6">
-            <li className="hover:text-gray-200 px-5 font-poppins font-semibold">¿Quienes somos?</li>
+            <Link to="/sobre-nosotros">
+            <li className="hover:text-gray-200 px-5 font-poppins font-semibold">¿Quienes somos?</li>          
+            </Link>            
             <li className="h-5 border-l border-white"></li>
-            <li className="hover:text-gray-200 px-5 font-poppins font-semibold">Proyectos</li>
+            <Link to="/proyectos">
+            <li className="hover:text-gray-200 px-5 font-poppins font-semibold">Proyectos</li>          
+            </Link>            
             <li className="h-5 border-l border-white"></li>
+            <Link to="/contacto">
             <li className="hover:text-gray-200 px-5 font-poppins font-semibold">Contacto</li>
+            </Link>
           </ul>
         </nav>
         <a href="https://www.ucp.edu.co" target="_blank" rel="noopener noreferrer">
