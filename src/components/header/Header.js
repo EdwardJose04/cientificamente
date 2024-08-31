@@ -35,11 +35,11 @@ function Header() {
             <Link to="/sobre-nosotros">
               <li className="hover:text-gray-200 px-5 font-semibold">¿Quienes somos?</li>          
             </Link>            
-            <li className="h-5 border-l border-white"></li>
+            <li className="h-8 border-l border-white"></li>
             <Link to="/proyectos">
               <li className="hover:text-gray-200 px-5 font-semibold">Proyectos</li>          
             </Link>            
-            <li className="h-5 border-l border-white"></li>
+            <li className="h-8 border-l border-white"></li>
             <Link to="/contacto">
               <li className="hover:text-gray-200 px-5 font-semibold">Contacto</li>
             </Link>
@@ -57,10 +57,12 @@ function Header() {
           <ul className="flex flex-col items-center space-y-8">
             <Link to="/sobre-nosotros" onClick={() => setIsMenuOpen(false)}>
               <li className="text-xl hover:text-gray-200 font-semibold">¿Quienes somos?</li>          
-            </Link>            
+            </Link>    
+
             <Link to="/proyectos" onClick={() => setIsMenuOpen(false)}>
               <li className="text-xl hover:text-gray-200 font-semibold">Proyectos</li>          
-            </Link>            
+            </Link>  
+
             <Link to="/contacto" onClick={() => setIsMenuOpen(false)}>
               <li className="text-xl hover:text-gray-200 font-semibold">Contacto</li>
             </Link>
