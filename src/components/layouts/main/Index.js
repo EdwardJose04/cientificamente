@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logoUCP_CM from '../../../assets/img/index/logoUCP_CM.svg';
-import logoCM from '../../../assets/img/index/logoCM.svg';
 import '../../../assets/css/inicio.css'
 import image1 from '../../../assets/img/index/index1.svg';
 import image2 from '../../../assets/img/index/index2.svg';
@@ -34,7 +33,7 @@ const ImageWithHover = ({ src, alt, title, text, index }) => {
 function Index() {
   return (
     <div className="index-container">
-      <a href="https://www.ucp.edu.co" target="_blank" rel="noopener noreferrer" className="hidden sm:block flex-shrink-0">
+      <a href="https://www.ucp.edu.co" target="_blank" rel="noopener noreferrer" className="logo-link">
         <img src={logoUCP_CM} alt='Logo' className="logo" />
       </a>
       <div className="content-wrapper">
