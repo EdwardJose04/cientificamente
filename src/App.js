@@ -5,13 +5,16 @@ import Inicio from './components/layouts/main/Inicio';
 import Contacto from './components/layouts/contact/Contacto';
 import About from './components/layouts/about/About';
 import Proyectos from './components/layouts/projects/Proyectos';
+import Index from './components/layouts/main/Index';
 
 function App() {
   return (
     <Router>
       <div>
         <Routes>
-          <Route path="/" element={<Inicio/>}/>
+          <Route path="/" element={<Index/>}/>
+
+          <Route path="/inicio" element={<Inicio/>}/>
 
           <Route path="/sobre-nosotros" element={<About />} />
 
