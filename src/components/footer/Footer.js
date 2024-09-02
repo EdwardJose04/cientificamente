@@ -50,7 +50,7 @@ function Footer() {
           </div>
         </div>
       </footer>
-      <div className="bg-[#2C5E77] py-3 sm:py-4">
+      <div className="bg-custom-blue-2 py-3 sm:py-4">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-white text-center">
           <p className='text-xs sm:text-sm font-semibold'>
             Desarrollado por el Centro de Innovación Educativa CIE - Universidad Católica de Pereira © 2024
