@@ -42,9 +42,17 @@ function Footer() {
             <div className="flex flex-col items-center md:items-end justify-center">
               <img src={ciencias} alt="Ciencias" className="h-10 sm:h-12 md:h-14 w-auto mb-4" />
               <div className="flex space-x-4">
-                <img src={youtube} alt="YouTube" className="h-6 sm:h-7 md:h-8 w-auto" />
-                <img src={facebook} alt="Facebook" className="h-6 sm:h-7 md:h-8 w-auto" />
-                <img src={instagram} alt="Instagram" className="h-6 sm:h-7 md:h-8 w-auto" />
+                <a href="https://www.youtube.com/channel/UC0rMERruF3JgtXAZETxp_uw" target="_blank" rel="noopener noreferrer" className="hidden sm:block flex-shrink-0">
+                  <img src={youtube} alt="Logo UCP" className="h-6 sm:h-7 md:h-8 w-auto" />
+                </a>
+
+                <a href="https://www.facebook.com/CientificamenteUCP" target="_blank" rel="noopener noreferrer" className="hidden sm:block flex-shrink-0">
+                  <img src={facebook} alt="Logo UCP" className="h-6 sm:h-7 md:h-8 w-auto" />
+                </a>
+
+                <a href="https://www.instagram.com/cientificamenteucp/" target="_blank" rel="noopener noreferrer" className="hidden sm:block flex-shrink-0">
+                  <img src={instagram} alt="Logo UCP" className="h-6 sm:h-7 md:h-8 w-auto" />
+                </a>
               </div>
             </div>
           </div>
