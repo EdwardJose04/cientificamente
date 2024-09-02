@@ -10,7 +10,7 @@ function Header() {
     <header className="bg-custom-blue text-white py-4 shadow-md font-poppins">
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link to="/inicio" className="flex-shrink-0">
-          <img src={logoCMblanco} alt="Logo Cientifica Mente" className="h-10 sm:h-12 md:h-14 w-auto" />
+          <img src={logoCMblanco} alt="Logo Cientifica Mente" className="h-16 sm:h-14 md:h-16 w-auto" />
         </Link>
 
         {/* Hamburger menu for mobile */}
@@ -33,21 +33,21 @@ function Header() {
         <nav className="hidden md:block">
           <ul className="flex items-center space-x-6">
             <Link to="/sobre-nosotros">
-              <li className="hover:text-gray-200 px-5 font-semibold">¿Quienes somos?</li>          
+              <li className="hover:text-black hover:bg-white hover:rounded-full hover:py-2 px-5 font-semibold">¿Quienes somos?</li>          
             </Link>            
             <li className="h-8 border-l border-white"></li>
             <Link to="/proyectos">
-              <li className="hover:text-gray-200 px-5 font-semibold">Proyectos</li>          
+              <li className="hover:text-black hover:bg-white hover:rounded-full hover:py-2 px-5 font-semibold">Proyectos</li>          
             </Link>            
             <li className="h-8 border-l border-white"></li>
             <Link to="/contacto">
-              <li className="hover:text-gray-200 px-5 font-semibold">Contacto</li>
+              <li className="hover:text-black hover:bg-white hover:rounded-full hover:py-2 px-5 font-semibold">Contacto</li>
             </Link>
           </ul>
         </nav>
 
         <a href="https://www.ucp.edu.co" target="_blank" rel="noopener noreferrer" className="hidden sm:block flex-shrink-0">
-          <img src={logoUCPblanco} alt="Logo UCP" className="h-10 sm:h-12 md:h-14 w-auto" />
+          <img src={logoUCPblanco} alt="Logo UCP" className="h-14 sm:h-14 md:h-16 w-auto" />
         </a>
       </div>
 
