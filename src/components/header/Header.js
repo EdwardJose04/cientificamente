@@ -9,7 +9,7 @@ function Header() {
   return (
     <header className="bg-custom-blue text-white py-4 shadow-md font-poppins">
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <Link to="/" className="flex-shrink-0">
+        <Link to="/inicio" className="flex-shrink-0">
           <img src={logoCMblanco} alt="Logo Cientifica Mente" className="h-10 sm:h-12 md:h-14 w-auto" />
         </Link>
 
