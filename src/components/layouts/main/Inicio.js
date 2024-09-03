@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../../header/Header';
 import Footer from '../../footer/Footer';
 import verano from '../../../assets/img/inicio/verano.svg'
@@ -11,7 +11,7 @@ import resinas from '../../../assets/img/inicio/resinas.svg'
 import Carousel from './carousel/Carousel';
 
 function Inicio() {
-  
+
   const smallArticles = [
     {
       title: "Semillero Coders obtiene primer puesto en UTP Open 2023",
@@ -32,6 +32,48 @@ function Inicio() {
       image: minciencias
     }
   ];
+
+  const [showPortfolio, setShowPortfolio] = useState(false);
+
+  const handlePortfolioClick = () => {
+    setShowPortfolio(true);
+  };
+
+  const handleClosePortfolio = () => {
+    setShowPortfolio(false);
+  };
+
+  /* const [showPortfolio, setShowPortfolio] = useState(false);
+
+  const handlePortfolioClick = () => {
+    setShowPortfolio(true);
+  };
+
+  const handleClosePortfolio = () => {
+    setShowPortfolio(false);
+  }; 
+  
+  /* {showPortfolio && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+          <div className="p-4 rounded-lg w-11/12 h-5/6">
+
+            <div className="h-full">
+              <button
+                className="float-right bg-red-600 text-white font-semibold my-1 px-3 py-1 rounded-lg hover:bg-red-700"
+                onClick={handleClosePortfolio}
+              >
+                Cerrar
+              </button>
+              <iframe
+                title="Porfolio científicamente"
+                src="https://view.genially.com/66a2d64888a98a4fcae8dddf"
+                className="w-full h-full"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </div>
+      )} */
 
   return (
     <div>
@@ -77,14 +119,17 @@ function Inicio() {
           </div>
         </div>
       </div>
-      
+
       {/* Section 3 */}
       <div className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between">
           <div className="w-full md:w-1/2 mb-8 md:mb-0 text-center">
             <h2 className="text-3xl md:text-4xl font-semibold mb-4 font-poppins">Contamos 7 grupos de investigación y con 8 semilleros</h2>
             <p>Te invitamos a que conozcas nuestro portafolio</p>
-            <button className="bg-custom-blue-2 text-white px-2 py-1 text-sm m-8 rounded-lg inline-block hover:bg-custom-blue">
+            <button
+              className="bg-custom-blue-2 text-white px-2 py-1 text-sm m-8 rounded-lg inline-block hover:bg-custom-blue"
+              onClick={handlePortfolioClick}
+            >
               <span className="border-b border-white">Da clic aquí</span>
             </button>
           </div>
@@ -94,27 +139,50 @@ function Inicio() {
         </div>
       </div>
 
+      {/* Portfolio Modal */}
+      {showPortfolio && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+          <div className="p-4 rounded-lg w-11/12 h-5/6">
+
+            <div className="h-full">
+              <button
+                className="float-right bg-red-600 text-white font-semibold my-1 px-3 py-1 rounded-lg hover:bg-red-700"
+                onClick={handleClosePortfolio}
+              >
+                Cerrar
+              </button>
+              <iframe
+                title="Portafolio científicamente"
+                src="https://view.genially.com/66a2d64888a98a4fcae8dddf"
+                className="w-full h-full"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Section 4 */}
       <div className="bg-custom-blue my-4 py-2 px-4 sm:px-6 lg:px-8 flex justify-center items-center text-center relative">
         <h1 className='text-white text-3xl md:text-4xl font-semibold font-poppins'>
-          <span className="relative inline-block"> ULTIMAS INVESTIGACIONES </span>
-            <span className="px-4">  ●</span>
-          <span className="inline-block ml-4">ULTIMAS INVESTIGACIONES</span>
+          <span className="relative inline-block"> Ultimas investigaciones </span>
+          <span className="px-4">  ●</span>
+          <span className="inline-block ml-4">Ultimas investigaciones</span>
         </h1>
       </div>
 
       {/*  CAROUSEL */}
-          <Carousel/>
+      <Carousel />
 
       {/* ALIADOS */}
-
-      <div className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 border-t border-t-custom-blue-2 border-t-4 mx-8 rounded">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between">
-          <div className="w-full md:w-1/2 mb-8 md:mb-0 text-white">
-          <img src={resinas} alt="About Company" className="w-full max-w-md h-auto object-contain" />
+      <div className="pb-8 px-4 sm:px-6 lg:px-8 border-t border-t-custom-blue-2 border-t-4 mx-8 rounded">
+        <p className='font-semibold text-3xl sm:text-3xl md:text-4xl py-4'>Nuestros aliados</p>
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-center">
+          <div className="w-full md:w-1/2 mb-8 md:mb-0 flex justify-center">
+            <img src={resinas} alt="Distri Resinas" className="w-full max-w-md h-auto object-contain" />
           </div>
-          <div className="w-full md:w-1/2 text-white">
-          <img src={tecnoparque} alt="About Company" className="w-full max-w-md h-auto object-contain" />
+          <div className="w-full md:w-1/2 flex justify-center">
+            <img src={tecnoparque} alt="Tecnoparque SENA" className="w-full max-w-md h-auto object-contain" />
           </div>
         </div>
       </div>
@@ -125,3 +193,4 @@ function Inicio() {
 }
 
 export default Inicio;
+

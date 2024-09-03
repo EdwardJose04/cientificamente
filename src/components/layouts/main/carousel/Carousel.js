@@ -77,7 +77,7 @@ const Carousel = () => {
           />
         ))}
       </div>
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex items-center space-x-4">
+      <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 flex items-center space-x-4">
         <button onClick={handlePrev} className="text-black">
           <ChevronLeft size={24} />
         </button>
@@ -85,7 +85,7 @@ const Carousel = () => {
           <button
             key={index}
             className={`w-3 h-3 rounded-full ${
-              index === currentIndex ? 'bg-blue-500' : 'bg-gray-300'
+              index === currentIndex ? 'bg-custom-blue-2' : 'bg-gray-300'
             }`}
             onClick={() => setCurrentIndex(index)}
           />

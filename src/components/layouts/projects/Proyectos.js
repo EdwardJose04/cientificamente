@@ -91,6 +91,20 @@ function Proyectos() {
                 <p className="project-description text-gray-900 mb-4 text-base md:text-lg">
                   {proyectos.categorias[categoriaActual].proyectos[proyectoActual].descripcion}
                 </p>
+                {/* Navegación de proyectos */}
+            <div className="flex justify-center mt-8 bottom-8">
+              <button 
+                onClick={anteriorProyecto}
+                className="mr-4"
+              >
+                <img src={left} className='h-8 w-auto' alt="Previous"/>
+              </button>
+              <button 
+                onClick={siguienteProyecto}
+              >
+                <img src={right} className='h-8 w-auto' alt="Next"/>
+              </button>
+            </div>
               </div>
               
               {/* Contenedor de imagen con líneas */}
@@ -111,20 +125,6 @@ function Proyectos() {
             <div className="line-vertical"></div>
             <div className="line-horizontal-bottom"></div>
           
-            {/* Navegación de proyectos */}
-            <div className="flex justify-center mt-8">
-              <button 
-                onClick={anteriorProyecto}
-                className="mr-4"
-              >
-                <img src={left} className='h-8 w-auto' alt="Previous"/>
-              </button>
-              <button 
-                onClick={siguienteProyecto}
-              >
-                <img src={right} className='h-8 w-auto' alt="Next"/>
-              </button>
-            </div>
           </div>
         )}
       </main>

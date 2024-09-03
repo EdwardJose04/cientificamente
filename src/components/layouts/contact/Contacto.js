@@ -120,6 +120,9 @@ Este mensaje fue enviado desde el formulario de contacto del sitio web Cientific
             </button>
           </div>
         </form>
+        <div>
+          <p>O escríbenos al siguiente correo: <span className='font-semibold'>investigaciones@ucp.edu.co</span></p>
+        </div>
       </div>
 
       <Footer />
