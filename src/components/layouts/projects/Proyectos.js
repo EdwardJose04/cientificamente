@@ -6,7 +6,7 @@ import proyectos from '../../../assets/proyectos';
 import filtro from '../../../assets/img/proyectos/filtro.svg';
 import right from '../../../assets/img/proyectos/right.svg';
 import left from '../../../assets/img/proyectos/left.svg';
-import './proyectos.css';
+import '.././../../assets/css/proyectos.css'
 
 function Proyectos() {
   const [categoriaActual, setCategoriaActual] = useState(0); 
