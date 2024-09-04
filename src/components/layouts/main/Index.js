@@ -69,7 +69,7 @@ function Index() {
           <ImageWithHover
             src={image5}
             alt='Cemab'
-            title="Cemab"
+            title="CEMAB"
             text="Desarrollo de línea de envases para transporte y conservación de tejido vivo y estéril"
             index={4}
           />

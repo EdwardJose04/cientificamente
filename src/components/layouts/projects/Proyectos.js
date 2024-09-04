@@ -51,8 +51,8 @@ function Proyectos() {
     <div>
       <Header />
       
-      <main className="container mx-auto px-4 py-8">
-        <div className="flex flex-col md:flex-row items-center relative">
+      <main className="container mx-auto px-4 py-8 my-12">
+        <div className="flex flex-col md:flex-row items-center relative py-4">
           <button 
             onClick={() => setMostrarFiltro(!mostrarFiltro)}
             className="flex items-center px-4 py-2 rounded mb-4 md:mb-0"

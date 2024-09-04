@@ -11,7 +11,7 @@ import logoUCPblanco from '../../assets/img/logos/logoUCPblanco.svg'
 function Footer() {
   return (
     <>
-      <footer className="bg-custom-blue py-6 sm:py-8 md:py-10 text-white">
+      <footer className="bg-custom-blue py-8 sm:py-8 md:py-10 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 relative">
             {/* CONTENIDO A LA IZQUIERDA */}
