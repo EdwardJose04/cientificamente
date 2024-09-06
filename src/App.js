@@ -7,7 +7,8 @@ import About from './components/layouts/about/About';
 import Proyectos from './components/layouts/projects/Proyectos';
 import Index from './components/layouts/main/Index';
 
-function App() {
+function App() 
+{
   return (
     <Router>
       <div>
@@ -26,8 +27,5 @@ function App() {
     </Router>
   );
 }
-
-// Componentes de ejemplo (deberías crear estos componentes en archivos separados)
-
 
 export default App;
