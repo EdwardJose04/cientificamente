@@ -14,6 +14,7 @@ function Footer() {
       <footer className="bg-custom-blue py-8 sm:py-8 md:py-10 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 relative">
+
             {/* CONTENIDO A LA IZQUIERDA */}
             <div className="flex justify-center sm:justify-start items-center">
               <img src={logoUCPblanco} alt="Logo UCP" className="h-16 sm:h-20 md:h-24 lg:h-28 w-auto" />
