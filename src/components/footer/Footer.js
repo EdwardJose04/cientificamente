@@ -37,7 +37,7 @@ function Footer() {
             </div>
 
             {/* LÍNEA VERTICAL */}
-            <div className="hidden lg:block absolute right-1/3 top-[10%] h-[80%] w-px bg-white"></div>
+            <div className="hidden lg:block absolute right-1/3 top-[0%] h-[100%] w-px bg-white"></div>
 
             {/* CONTENIDO A LA DERECHA */}
             <div className="flex flex-col items-center sm:items-start justify-center lg:pl-8">
