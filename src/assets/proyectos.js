@@ -109,13 +109,13 @@ const proyectos = {
         },
         {
           id: 2,
-          titulo: "Nodo Metalmecánico",
+          titulo: "Nodo metalmecánico",
           descripcion: "Desarrollo y diseño de software para el fortalecimiento económico de Sector Metalmecánico risaraldense.  ",
           imagenes: [nodo_metal]
         },
         {
           id: 3,
-          titulo: "Logística de Medicamentos",
+          titulo: "Logística de medicamentos",
           descripcion: "Medicamentos oncológicos para las IPS de la ciudad de Pereira.",
           imagenes: [logistica]
         },
@@ -126,7 +126,7 @@ const proyectos = {
       proyectos: [
         {
           id: 1,
-          titulo: "PHOTOBOY",
+          titulo: "Photoboy",
           descripcion: "Prevención de enfermedades ligadas al consumo de tabaco en niñas, niños y adolescentes del Eje Cafetero",
           imagenes: [photoboy]
         }

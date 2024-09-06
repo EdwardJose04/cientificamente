@@ -9,7 +9,7 @@ import Index from './components/layouts/main/Index';
 
 function App() {
   return (
-    <Router basename="/cientificamente">
+    <Router>
       <div>
         <Routes>
           <Route path="/" element={<Index/>}/>
