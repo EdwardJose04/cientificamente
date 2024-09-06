@@ -1,6 +1,6 @@
 // App.js
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import Inicio from './components/layouts/main/Inicio';
 import Contacto from './components/layouts/contact/Contacto';
 import About from './components/layouts/about/About';
@@ -9,7 +9,7 @@ import Index from './components/layouts/main/Index';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/cientificamente">
       <div>
         <Routes>
           <Route path="/" element={<Index/>}/>
