@@ -82,7 +82,7 @@ function Index() {
           />
         </div>
         <div className="button-container">
-          <Link to='/inicio' className="start-button">
+          <Link to="/inicio" className="start-button">
             Iniciar
           </Link>
         </div>
