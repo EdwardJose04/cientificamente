@@ -25,7 +25,7 @@ const proyectos = {
           titulo: "CAPAZ",
           descripcion: "Centro analítico de producciones culturales",
           imagenes: [capaz],
-          genially: "https://www.youtube.com/watch?v=svtUaIFtzIg"
+          genially: "capaz"
         },
         // Añade más proyectos en esta categoría
       ]
@@ -39,7 +39,7 @@ const proyectos = {
           titulo: "IUMA",
           descripcion: "Laboratorio de co- creación simbólica artesanal para el empoderamiento y sostenibilidad socio-cultural de las mujeres indígenas Embera Chamí",
           imagenes: [iuma],
-          genially: ""
+          genially: "iuma"
         },
       ]
     },
@@ -52,7 +52,7 @@ const proyectos = {
           titulo: "Competencias emocionales",
           descripcion: "Para favorecer la inclusión social entre pares en el marco de la multiculturalidad educativa",
           imagenes: [competencias],
-          genially: ""
+          genially: "competencias"
         },
         {
           id: 2,
