@@ -75,8 +75,8 @@ function Index() {
           />
           <ImageWithHover
             src={image6}
-            alt='Smaf + enfaces'
-            title="Smaf + enfaces"
+            alt='SMAF + ENFACES'
+            title="SMAF + ENFACES"
             text="Salud mental actividad física y bienestar: enfanses 2/32"
             index={5}
           />
