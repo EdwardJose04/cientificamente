@@ -43,38 +43,6 @@ function Inicio() {
     setShowPortfolio(false);
   };
 
-  /* const [showPortfolio, setShowPortfolio] = useState(false);
-
-  const handlePortfolioClick = () => {
-    setShowPortfolio(true);
-  };
-
-  const handleClosePortfolio = () => {
-    setShowPortfolio(false);
-  }; 
-  
-  /* {showPortfolio && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div className="p-4 rounded-lg w-11/12 h-5/6">
-
-            <div className="h-full">
-              <button
-                className="float-right bg-red-600 text-white font-semibold my-1 px-3 py-1 rounded-lg hover:bg-red-700"
-                onClick={handleClosePortfolio}
-              >
-                Cerrar
-              </button>
-              <iframe
-                title="Porfolio científicamente"
-                src="https://view.genially.com/66a2d64888a98a4fcae8dddf"
-                className="w-full h-full"
-                allowFullScreen
-              />
-            </div>
-          </div>
-        </div>
-      )} */
-
   return (
     <div>
       <Header />
