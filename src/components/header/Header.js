@@ -22,6 +22,23 @@ function Header() {
     }
   }, [])
 
+  const MenuButton = () => (
+    <button 
+      className="md:hidden z-50"
+      onClick={() => setIsMenuOpen(!isMenuOpen)}
+    >
+      {isMenuOpen ? (
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      ) : (
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      )}
+    </button>
+  )
+
   return (
     <>
       {/* Original header */}
@@ -31,21 +48,7 @@ function Header() {
             <img src={logoCMblanco} alt="Logo Cientifica Mente" className="h-12 sm:h-12 md:h-14 w-auto" />
           </Link>
 
-          {/* Hamburger menu for mobile */}
-          <button 
-            className="md:hidden z-50"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            ) : (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            )}
-          </button>
+          <MenuButton />
 
           {/* Navigation for larger screens */}
           <nav className="hidden md:block">
@@ -77,6 +80,8 @@ function Header() {
             <img src={logoCMblanco} alt="Logo Cientifica Mente" className="h-10 w-auto" />
           </Link>
 
+          <MenuButton />
+
           {/* Navigation for larger screens */}
           <nav className="hidden md:block">
             <ul className="flex items-center space-x-6">
@@ -101,15 +106,15 @@ function Header() {
         <nav className="w-full pt-20">
           <ul className="flex flex-col items-center space-y-8">
             <Link to="/sobre-nosotros" onClick={() => setIsMenuOpen(false)}>
-              <li className="text-xl hover:text-gray-200 font-semibold">¿Quienes somos?</li>
+              <li className="text-xl hover:text-gray-200 text-white font-semibold">¿Quienes somos?</li>
             </Link>
 
             <Link to="/proyectos" onClick={() => setIsMenuOpen(false)}>
-              <li className="text-xl hover:text-gray-200 font-semibold">Proyectos</li>
+              <li className="text-xl hover:text-gray-200 text-white font-semibold">Proyectos</li>
             </Link>
 
             <Link to="/contacto" onClick={() => setIsMenuOpen(false)}>
-              <li className="text-xl hover:text-gray-200 font-semibold">Contacto</li>
+              <li className="text-xl hover:text-gray-200 text-white font-semibold">Contacto</li>
             </Link>
           </ul>
         </nav>
