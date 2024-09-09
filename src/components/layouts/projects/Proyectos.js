@@ -9,9 +9,19 @@ import left from '../../../assets/img/proyectos/left.svg';
 import '.././../../assets/css/proyectos.css'
 
 function Proyectos() {
-  const [categoriaActual, setCategoriaActual] = useState(0); 
+  const [categoriaActual, setCategoriaActual] = useState(0);
   const [mostrarFiltro, setMostrarFiltro] = useState(false);
   const [proyectoActual, setProyectoActual] = useState(0);
+  const [showModal, setShowModal] = useState(false);
+
+
+  const handleModalClick = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
 
   useEffect(() => {
     const indexConstruccionPaz = proyectos.categorias.findIndex(
@@ -50,14 +60,14 @@ function Proyectos() {
   return (
     <div>
       <Header />
-      
+
       <main className="container mx-auto px-4 py-8 my-12">
         <div className="flex flex-col md:flex-row items-center relative py-4">
-          <button 
+          <button
             onClick={() => setMostrarFiltro(!mostrarFiltro)}
             className="flex items-center px-4 py-2 rounded mb-4 md:mb-0"
           >
-            <img src={filtro} alt="Filtro" className="mr-2 h-8 w-auto"/>
+            <img src={filtro} alt="Filtro" className="mr-2 h-8 w-auto" />
           </button>
           {categoriaActual !== null && (
             <span className='font-semibold text-xl md:text-2xl'>
@@ -92,21 +102,21 @@ function Proyectos() {
                   {proyectos.categorias[categoriaActual].proyectos[proyectoActual].descripcion}
                 </p>
                 {/* Navegación de proyectos */}
-            <div className="flex justify-center mt-8 bottom-8">
-              <button 
-                onClick={anteriorProyecto}
-                className="mr-4"
-              >
-                <img src={left} className='h-8 w-auto' alt="Previous"/>
-              </button>
-              <button 
-                onClick={siguienteProyecto}
-              >
-                <img src={right} className='h-8 w-auto' alt="Next"/>
-              </button>
-            </div>
+                <div className="flex justify-center mt-8 bottom-8">
+                  <button
+                    onClick={anteriorProyecto}
+                    className="mr-4"
+                  >
+                    <img src={left} className='h-8 w-auto' alt="Previous" />
+                  </button>
+                  <button
+                    onClick={siguienteProyecto}
+                  >
+                    <img src={right} className='h-8 w-auto' alt="Next" />
+                  </button>
+                </div>
               </div>
-              
+
               {/* Contenedor de imagen con líneas */}
               <div className="image-container md:w-1/3 relative">
                 <img
@@ -114,17 +124,39 @@ function Proyectos() {
                   alt={proyectos.categorias[categoriaActual].proyectos[proyectoActual].titulo}
                   className="w-full h-auto object-cover"
                 />
-                <button className="absolute top-4 right-4 bg-custom-blue-2 rounded-full p-2 shadow-md">
+                <button className="absolute top-4 right-4 bg-custom-blue-2 rounded-full p-2 shadow-md" onClick={handleModalClick}>
                   <Play size={16} className="text-white fill-current" />
                 </button>
+
+                {showModal && (
+                  <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+                    <div className="p-4 rounded-lg w-11/12 h-5/6">
+
+                      <div className="h-full">
+                        <button
+                          className="float-right bg-red-600 text-white font-semibold my-1 px-3 py-1 rounded-lg hover:bg-red-700"
+                          onClick={handleCloseModal}
+                        >
+                          Cerrar
+                        </button>
+                        <iframe
+                          title="Porfolio científicamente"
+                          src={proyectos.categorias[categoriaActual].proyectos[proyectoActual].genially}
+                          className="w-full h-full"
+                          allowFullScreen
+                        />
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
-          
+
             {/* Líneas decorativas */}
             <div className="line-horizontal-top"></div>
             <div className="line-vertical"></div>
             <div className="line-horizontal-bottom"></div>
-          
+
           </div>
         )}
       </main>
