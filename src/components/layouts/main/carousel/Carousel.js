@@ -6,33 +6,17 @@ import adultez from '../../../../assets/img/inicio/carouselADULTEZ.svg';
 import photoboy from '../../../../assets/img/inicio/carouselPHOTOBOY.svg';
 import iuma from '../../../../assets/img/inicio/carouselIUMA.svg';
 
-const CarouselItem = ({ image, alt, position, isCenter }) => (
-  <div className={`absolute transition-all duration-500 ease-in-out ${isCenter ? 'z-10' : 'z-0'}`} 
-       style={{
-         transform: `translateX(-50%) translateX(${position.x}px) scale(${position.scale})`,
-         opacity: position.opacity,
-       }}>
-    <div className="relative">
-      <img 
-        src={image} 
-        alt={alt} 
-        className="w-auto h-[500px] object-cover rounded-lg"
-      />
-      <button className="absolute top-4 right-4 bg-custom-blue-2 rounded-full p-2 shadow-md">
-        <Play size={24} className="text-white fill-current" />
-      </button>
-    </div>
-  </div>
-);
-
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showModal, setShowModal] = useState(false);
+  const [geniallyUrl, setGeniallyUrl] = useState('');
+
   const carouselItems = [
-    { image: cemab, alt: 'CEMAB' },
-    { image: capaz, alt: 'CAPAZ' },
-    { image: adultez, alt: 'ADULTEZ' },
-    { image: photoboy, alt: 'PHOTOBOY' },
-    { image: iuma, alt: 'IUMA' },
+    { image: cemab, alt: 'CEMAB', genially: "" },
+    { image: capaz, alt: 'CAPAZ', genially: "" },
+    { image: adultez, alt: 'ADULTEZ', genially: "" },
+    { image: photoboy, alt: 'PHOTOBOY', genially: "" },
+    { image: iuma, alt: 'IUMA', genially: "" },
   ];
 
   const totalItems = carouselItems.length;
@@ -46,14 +30,14 @@ const Carousel = () => {
 
   const getItemPosition = (index) => {
     const theta = ((index - currentIndex + totalItems) % totalItems) / totalItems * Math.PI * 2;
-    const radius = 400; // Reduced radius for less separation
-    const centerScale = 0.9; // Slightly reduced center scale
-    const minScale = 0.7; // Increased minimum scale
+    const radius = 400;
+    const centerScale = 0.9;
+    const minScale = 0.7;
 
     return {
       x: radius * Math.sin(theta),
       scale: centerScale - (1 - Math.cos(theta)) * (centerScale - minScale) / 2,
-      opacity: Math.cos(theta) * 0.5 + 0.5, // Adjusted opacity calculation
+      opacity: Math.cos(theta) * 0.5 + 0.5,
     };
   };
 
@@ -65,16 +49,44 @@ const Carousel = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % totalItems);
   };
 
+  const handleModalClick = (geniallyUrl) => {
+    setGeniallyUrl(geniallyUrl);
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <div className="relative w-full h-[620px] overflow-hidden">
       <div className="absolute w-full h-full left-1/2 top-1/2 -translate-y-1/2">
         {carouselItems.map((item, index) => (
-          <CarouselItem 
-            key={index} 
-            {...item} 
-            position={getItemPosition(index)}
-            isCenter={index === currentIndex}
-          />
+          <div
+            key={index}
+            className={`absolute transition-all duration-500 ease-in-out ${
+              index === currentIndex ? 'z-10' : 'z-0'
+            }`}
+            style={{
+              transform: `translateX(-50%) translateX(${getItemPosition(index).x}px) scale(${getItemPosition(index).scale})`,
+              opacity: getItemPosition(index).opacity,
+            }}
+          >
+            <div className="relative">
+              <img
+                src={item.image}
+                alt={item.alt}
+                className="w-auto h-[500px] object-cover rounded-lg"
+              />
+                <button
+                  className="absolute top-4 right-4 bg-custom-blue-2 rounded-full p-2 shadow-md"
+                  onClick={() => handleModalClick(item.genially)}
+                >
+                  <Play size={24} className="text-white fill-current" />
+                </button>
+              
+            </div>
+          </div>
         ))}
       </div>
       <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 flex items-center space-x-4">
@@ -94,6 +106,27 @@ const Carousel = () => {
           <ChevronRight size={24} />
         </button>
       </div>
+
+      {showModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+          <div className="p-4 rounded-lg w-11/12 h-5/6">
+            <div className="h-full">
+              <button
+                className="float-right bg-red-600 text-white font-semibold my-1 px-3 py-1 rounded-lg hover:bg-red-700"
+                onClick={handleCloseModal}
+              >
+                Cerrar
+              </button>
+              <iframe
+                title="Porfolio científicamente"
+                src={geniallyUrl}
+                className="w-full h-full"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
