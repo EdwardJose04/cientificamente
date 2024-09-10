@@ -26,6 +26,7 @@ function Contacto() {
       to_name: 'Cientifica Mente',
       from_name: `${formData.nombre} ${formData.apellido}`,
       from_email: formData.correo,
+      reply_to: formData.correo,
       subject: formData.asunto,
       message: formData.mensaje
     };
