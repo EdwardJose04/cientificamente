@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import Header from '../../header/Header';
 import Footer from '../../footer/Footer';
+import correoEnviado from '../../../assets/mensajeEnviado.json';
+import Lottie from 'lottie-react';
 
 function Contacto() {
   const [formData, setFormData] = useState({
@@ -10,6 +13,7 @@ function Contacto() {
     asunto: '',
     mensaje: ''
   });
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -17,27 +21,39 @@ function Contacto() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    const { nombre, apellido, correo, asunto, mensaje } = formData;
-    const body = `
-Nuevo mensaje de ${correo}
-Nombre: ${nombre} ${apellido}
 
-${mensaje}
+    const templateParams = {
+      to_name: 'Cientifica Mente',
+      from_name: `${formData.nombre} ${formData.apellido}`,
+      from_email: formData.correo,
+      subject: formData.asunto,
+      message: formData.mensaje
+    };
 
-Este mensaje fue enviado desde el formulario de contacto del sitio web Cientifica Mente.
-    `.trim();
-
-    const mailtoLink = `mailto:edward_rangel@soy.sena.edu.co?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(body)}`;
-    
-    window.open(mailtoLink, '_blank');
+    emailjs.send(
+      'service_45p6xnv',
+      'template_iqz5kib',
+      templateParams,
+      'seVqo3Bm6pByw6CJz'
+    )
+      .then((response) => {
+        setShowSuccessMessage(true);
+        setFormData({ nombre: '', apellido: '', correo: '', asunto: '', mensaje: '' });
+        setTimeout(() => setShowSuccessMessage(false), 3000); // Hide message after 3 seconds
+      }, (err) => {
+        alert('Hubo un problema al enviar el mensaje. Por favor, intenta de nuevo.');
+      });
   };
 
   return (
     <div>
       <Header />
-      
-      <div className="max-w-4xl mx-auto mt-10 mb-10 px-4">
+      <div className="max-w-4xl mx-auto mt-10 mb-10 px-4 relative">
+        {showSuccessMessage && (
+          <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg shadow-lg p-6 z-50">
+            <Lottie animationData={correoEnviado} loop={true} style={{width: 400, height: 200}} />
+          </div>
+        )}
         <form className="w-full px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
           <div className="flex mb-4">
             <div className="w-1/2 pr-2">
@@ -124,7 +140,6 @@ Este mensaje fue enviado desde el formulario de contacto del sitio web Cientific
           <p>O escríbenos al siguiente correo: <span className='font-semibold'>investigaciones@ucp.edu.co</span></p>
         </div>
       </div>
-
       <Footer />
     </div>
   );
