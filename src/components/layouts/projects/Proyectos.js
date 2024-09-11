@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Header from '../../header/Header';
 import Footer from '../../footer/Footer';
 import { Play } from 'lucide-react';
-import proyectos from '../../../assets/proyectos';
+import proyectos from '../../../assets/json/proyectos';
 import filtro from '../../../assets/img/proyectos/filtro.svg';
 import right from '../../../assets/img/proyectos/right.svg';
 import left from '../../../assets/img/proyectos/left.svg';

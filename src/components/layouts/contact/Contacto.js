@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import Header from '../../header/Header';
 import Footer from '../../footer/Footer';
-import correoEnviado from '../../../assets/mensajeEnviado.json';
+import correoEnviado from '../../../assets/json/mensajeEnviado.json';
 import Lottie from 'lottie-react';
 
 function Contacto() {

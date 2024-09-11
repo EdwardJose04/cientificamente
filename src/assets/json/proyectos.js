@@ -1,18 +1,18 @@
-import capaz from './img/proyectos/construccion_de_paz/capaz.svg'
-import photoboy from './img/proyectos/ambientes_educativos/photoboy.svg'
-import iuma from './img/proyectos/desarollo_territorial/iuma.svg'
-import cemab from './img/proyectos/desarrollo_empresarial/cemab.svg'
-import logistica from './img/proyectos/desarrollo_empresarial/logistica.svg'
-import nodo_metal from './img/proyectos/desarrollo_empresarial/nodo_metal.svg'
-import adultez from './img/proyectos/salud_mental/adultez.svg'
-import competencias from './img/proyectos/salud_mental/competencias.svg'
-import echale_gafa from './img/proyectos/salud_mental/echale_gafa.svg'
-import enteratea from './img/proyectos/salud_mental/enteratea.svg'
-import mil_por_hora from './img/proyectos/salud_mental/mil_por_hora.svg'
-import psicocalle from './img/proyectos/salud_mental/psicocalle.svg'
-import smaf from './img/proyectos/salud_mental/smaf.svg'
-import socioemocional from './img/proyectos/salud_mental/socioemocional.svg'
-import vacunarte from './img/proyectos/salud_mental/vacunarte.svg'
+import capaz from '../img/proyectos/construccion_de_paz/capaz.svg'
+import photoboy from '../img/proyectos/ambientes_educativos/photoboy.svg'
+import iuma from '../img/proyectos/desarollo_territorial/iuma.svg'
+import cemab from '../img/proyectos/desarrollo_empresarial/cemab.svg'
+import logistica from '../img/proyectos/desarrollo_empresarial/logistica.svg'
+import nodo_metal from '../img/proyectos/desarrollo_empresarial/nodo_metal.svg'
+import adultez from '../img/proyectos/salud_mental/adultez.svg'
+import competencias from '../img/proyectos/salud_mental/competencias.svg'
+import echale_gafa from '../img/proyectos/salud_mental/echale_gafa.svg'
+import enteratea from '../img/proyectos/salud_mental/enteratea.svg'
+import mil_por_hora from '../img/proyectos/salud_mental/mil_por_hora.svg'
+import psicocalle from '../img/proyectos/salud_mental/psicocalle.svg'
+import smaf from '../img/proyectos/salud_mental/smaf.svg'
+import socioemocional from '../img/proyectos/salud_mental/socioemocional.svg'
+import vacunarte from '../img/proyectos/salud_mental/vacunarte.svg'
 
 const proyectos = {
   categorias: [
@@ -27,7 +27,7 @@ const proyectos = {
           imagenes: [capaz],
           genially: "capaz"
         },
-        // Añade más proyectos en esta categoría
+        
       ]
     },
 
