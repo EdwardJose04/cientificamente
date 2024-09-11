@@ -1,3 +1,4 @@
+// Importación de React y de los assets necesarios para el componente
 import React from 'react'
 import youtube from '../../assets/img/footer/youtube.svg'
 import instagram from '../../assets/img/footer/instagram.svg'
@@ -8,41 +9,47 @@ import ubicacion from '../../assets/img/footer/ubicacion.svg'
 import ciencias from '../../assets/img/footer/ciencias.svg'
 import logoUCPblanco from '../../assets/img/logos/logoUCPblanco.svg'
 
+// Definición del componente Footer
 function Footer() {
   return (
     <>
+      {/* Sección principal del footer */}
       <footer className="bg-custom-blue py-8 sm:py-8 md:py-10 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 relative">
 
-            {/* CONTENIDO A LA IZQUIERDA */}
+            {/* Columna izquierda: Logo de la UCP */}
             <div className="flex justify-center sm:justify-start items-center">
               <img src={logoUCPblanco} alt="Logo UCP" className="h-16 sm:h-20 md:h-24 lg:h-28 w-auto" />
             </div>
 
-            {/* CONTENIDO CENTRAL */}
+            {/* Columna central: Información de contacto */}
             <div className="flex flex-col space-y-4 items-center sm:items-start justify-center md:px-4">
+              {/* Dirección */}
               <div className="flex items-center w-full">
                 <img src={ubicacion} alt="Ubicación" className="h-5 sm:h-6 md:h-8 w-auto mr-2 flex-shrink-0" />
                 <p className="text-xs sm:text-sm">Carrera 21 No. 49-95 Av. de las Américas Pereira, Colombia.</p>
               </div>
+              {/* Teléfono */}
               <div className="flex items-center w-full">
                 <img src={telefono} alt="Teléfono" className="h-4 sm:h-5 md:h-6 w-auto mr-2 flex-shrink-0" />
                 <p className="text-xs sm:text-sm">PBX (606) 3124000 EXT.1043</p>
               </div>
+              {/* Correo electrónico */}
               <div className="flex items-center w-full">
                 <img src={correo} alt="Correo" className="h-4 sm:h-5 md:h-6 w-auto mr-2 flex-shrink-0" />
                 <p className="text-xs sm:text-sm">investigaciones@ucp.edu.co</p>
               </div>
             </div>
 
-            {/* LÍNEA VERTICAL */}
+            {/* Línea vertical divisoria (visible solo en pantallas grandes) */}
             <div className="hidden lg:block absolute right-1/3 top-[0%] h-[100%] w-px bg-white"></div>
 
-            {/* CONTENIDO A LA DERECHA */}
+            {/* Columna derecha: Logo de Ciencias y enlaces a redes sociales */}
             <div className="flex flex-col items-center sm:items-start justify-center lg:pl-8">
               <img src={ciencias} alt="Ciencias" className="h-10 sm:h-12 md:h-14 w-auto mb-4" />
               <div className="flex space-x-4">
+                {/* Enlaces a redes sociales */}
                 <a href="https://www.youtube.com/channel/UC0rMERruF3JgtXAZETxp_uw" target="_blank" rel="noopener noreferrer" className="flex-shrink-0">
                   <img src={youtube} alt="YouTube" className="h-6 sm:h-7 md:h-8 w-auto" />
                 </a>
@@ -57,6 +64,8 @@ function Footer() {
           </div>
         </div>
       </footer>
+
+      {/* Sección de copyright */}
       <div className="bg-custom-blue-2 py-3 sm:py-4">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-white text-center">
           <p className='text-xs sm:text-sm font-semibold'>

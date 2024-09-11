@@ -11,7 +11,7 @@ import resinas from '../../../assets/img/inicio/resinas.svg'
 import Carousel from './carousel/Carousel';
 
 function Inicio() {
-
+  // Array de artículos pequeños para la barra lateral
   const smallArticles = [
     {
       title: "Semillero Coders obtiene primer puesto en UTP Open 2023",
@@ -33,8 +33,10 @@ function Inicio() {
     }
   ];
 
+  // Estado para controlar la visibilidad del modal del portafolio
   const [showPortfolio, setShowPortfolio] = useState(false);
 
+  // Funciones para manejar la apertura y cierre del modal del portafolio
   const handlePortfolioClick = () => {
     setShowPortfolio(true);
   };
@@ -47,8 +49,7 @@ function Inicio() {
     <div>
       <Header />
       <main className="flex flex-col md:flex-row my-8">
-
-        {/* Main content */}
+        {/* Contenido principal */}
         <div className="w-full md:w-3/4 px-4 md:px-8 mb-8 md:mb-0">
           <article className="p-6 rounded-lg">
             <img src={verano} alt="Verano de investigación" className="w-full h-auto object-cover mb-4 rounded" />
@@ -62,7 +63,7 @@ function Inicio() {
           </article>
         </div>
 
-        {/* Articulos a la derecha */}
+        {/* Artículos pequeños en la barra lateral */}
         <div className="w-full md:w-1/4 border-t-2 md:border-t-0 md:border-l-2 border-black pt-8 md:pt-0 md:pl-8 px-4 md:px-0">
           {smallArticles.map((article, index) => (
             <article key={index} className="mb-6 last:mb-0">
@@ -76,7 +77,7 @@ function Inicio() {
         </div>
       </main>
 
-      {/* Section 2 */}
+      {/* Sección 2: Cita y descripción */}
       <div className="bg-custom-blue-2 py-12 md:py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between">
           <div className="w-full md:w-1/2 mb-8 md:mb-0 text-white">
@@ -88,7 +89,7 @@ function Inicio() {
         </div>
       </div>
 
-      {/* Section 3 */}
+      {/* Sección 3: Información sobre grupos de investigación y semilleros */}
       <div className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between">
           <div className="w-full md:w-1/2 mb-8 md:mb-0 text-center">
@@ -106,11 +107,11 @@ function Inicio() {
           </div>
         </div>
       </div>
-      {/* Portfolio Modal */}
+
+      {/* Modal del Portafolio */}
       {showPortfolio && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
           <div className="p-4 rounded-lg w-11/12 h-5/6">
-
             <div className="h-full">
               <button
                 className="float-right bg-red-600 text-white font-semibold my-1 px-3 py-1 rounded-lg hover:bg-red-700"
@@ -129,7 +130,7 @@ function Inicio() {
         </div>
       )}
 
-      {/* Section 4 */}
+      {/* Sección 4: Título de últimas investigaciones */}
       <div className="bg-custom-blue my-4 py-2 px-4 sm:px-6 lg:px-8 flex justify-center items-center text-center relative">
         <h1 className='text-white text-3xl md:text-4xl font-semibold font-poppins'>
           <span className="relative inline-block"> Ultimas investigaciones </span>
@@ -138,17 +139,17 @@ function Inicio() {
         </h1>
       </div>
 
-      {/*  CAROUSEL */}
+      {/* Carrusel de investigaciones */}
       <Carousel />
 
-      {/* ALIADOS */}
+      {/* Sección de Aliados */}
       <div className="pb-8 px-4 sm:px-6 lg:px-8 border-t border-t-custom-blue-2 border-t-4 mx-8 rounded">
         <p className='font-semibold text-3xl sm:text-3xl md:text-4xl py-4'>Nuestros aliados</p>
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-center">
-          <div className="w-full md:w-1/2 mb-8 md:mb-0 flex justify-center">
+          <div className="w-full md:w-1-2 mb-8 md:mb-0 flex justify-center">
             <img src={resinas} alt="Distri Resinas" className="w-full max-w-md h-auto object-contain" />
           </div>
-          <div className="w-full md:w-1/2 flex justify-center">
+          <div className="w-full md:w-1-2 flex justify-center">
             <img src={tecnoparque} alt="Tecnoparque SENA" className="w-full max-w-md h-auto object-contain" />
           </div>
         </div>
@@ -160,4 +161,3 @@ function Inicio() {
 }
 
 export default Inicio;
-

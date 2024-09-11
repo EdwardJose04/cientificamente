@@ -9,8 +9,11 @@ import image4 from '../../../assets/img/index/index4.svg';
 import image5 from '../../../assets/img/index/index5.svg';
 import image6 from '../../../assets/img/index/index6.svg';
 
+// Componente para cada imagen con efecto hover
 const ImageWithHover = ({ src, alt, title, text, index }) => {
+  // Estado para controlar si el mouse está sobre la imagen
   const [isHovered, setIsHovered] = React.useState(false);
+  // Determina si la imagen está en la fila superior
   const isTopRow = index < 3;
 
   return (
@@ -30,13 +33,16 @@ const ImageWithHover = ({ src, alt, title, text, index }) => {
   );
 };
 
+// Componente principal de la página de inicio
 function Index() {
   return (
     <div className="index-container">
+      {/* Logo con enlace a la página de la UCP */}
       <a href="https://www.ucp.edu.co" target="_blank" rel="noopener noreferrer" className="logo-link">
         <img src={logoUCP_CM} alt='Logo' className="logo" />
       </a>
       <div className="content-wrapper">
+        {/* Cuadrícula de imágenes */}
         <div className="images-grid">
           <ImageWithHover
             src={image1}
@@ -81,6 +87,7 @@ function Index() {
             index={5}
           />
         </div>
+        {/* Contenedor del botón de inicio */}
         <div className="button-container">
           <Link to="/inicio" className="start-button">
             Iniciar
