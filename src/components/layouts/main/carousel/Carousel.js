@@ -17,11 +17,11 @@ const Carousel = () => {
 
   // Array de objetos con la información de cada elemento del carrusel
   const carouselItems = [
-    { image: cemab, alt: 'CEMAB', genially: "" },
-    { image: capaz, alt: 'CAPAZ', genially: "" },
-    { image: adultez, alt: 'ADULTEZ', genially: "" },
-    { image: photoboy, alt: 'PHOTOBOY', genially: "" },
-    { image: iuma, alt: 'IUMA', genially: "" },
+    { image: cemab, alt: 'CEMAB', genially: "https://view.genially.com/66a3d646e0c64b0109e7d319" },
+    { image: capaz, alt: 'CAPAZ', genially: "https://view.genially.com/66a3b0b1298c760bb31d63c3" },
+    { image: adultez, alt: 'ADULTEZ', genially: "https://view.genially.com/66a50423a8ea2c4e38c75d55" },
+    { image: photoboy, alt: 'PHOTOBOY', genially: "https://view.genially.com/66a3cc06dc65a63cdfc1dc5a" },
+    { image: iuma, alt: 'IUMA', genially: "https://view.genially.com/66a3c299e0c64b0109da4c30" },
   ];
 
   const totalItems = carouselItems.length;
