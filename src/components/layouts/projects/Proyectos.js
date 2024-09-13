@@ -67,13 +67,13 @@ function Proyectos() {
     <div>
       <Header />
 
-      <main className="container mx-auto px-4 py-8 my-12">
+      <main className="container mx-auto px-4 py-8 mt-[32px] mb-[72px]">
         {/* Sección de filtro de categorías */}
         <div className="flex flex-col md:flex-row items-center relative py-4">
           {/* Botón para mostrar/ocultar el filtro */}
           <button
             onClick={() => setMostrarFiltro(!mostrarFiltro)}
-            className="flex items-center px-4 py-2 rounded mb-4 md:mb-0"
+            className="flex items-center px-4 py-8 rounded mb-4 md:mb-0"
           >
             <img src={filtro} alt="Filtro" className="mr-2 h-8 w-auto" />
           </button>
