@@ -90,10 +90,10 @@ const Carousel = () => {
                 className="w-auto h-[500px] object-cover rounded-lg"
               />
               <button
-                className="absolute top-4 right-4 bg-custom-blue-2 rounded-full p-2 shadow-md"
+                className="absolute top-4 right-4 animate-pulse bg-custom-blue-2 rounded-full p-2 shadow-md"
                 onClick={() => handleModalClick(item.genially)}
               >
-                <Play size={24} className="text-white fill-current" />
+                <Play size={24} className="text-white pulse fill-current" />
               </button>
             </div>
           </div>

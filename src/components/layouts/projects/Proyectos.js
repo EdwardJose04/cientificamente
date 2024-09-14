@@ -136,7 +136,7 @@ function Proyectos() {
                   className="w-full h-auto object-cover"
                 />
                 {/* Botón de reproducción para abrir el modal */}
-                <button className="absolute top-4 right-4 bg-custom-blue-2 rounded-full p-2 shadow-md" onClick={handleModalClick}>
+                <button className="absolute top-4 right-4 animate-pulse bg-custom-blue-2 rounded-full p-2 shadow-md" onClick={handleModalClick}>
                   <Play size={16} className="text-white fill-current" />
                 </button>
 
