@@ -46,11 +46,12 @@ function Inicio() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen w-full">
       <Header />
-      <main className="flex-grow">
-        <div className="flex flex-col lg:flex-row my-4 sm:my-6 lg:my-8 px-4 sm:px-6 lg:px-8">
-          <div className="w-full lg:w-3/4 mb-6 lg:mb-0">
+
+      <main className="flex-grow w-full">
+        <div className="flex flex-col lg:flex-row my-4 sm:my-6 lg:my-8">
+          <div className="w-full lg:w-3/4 mb-6 lg:mb-0 px-4 sm:px-6 lg:px-8">
             <article className="p-4 lg:p-6 rounded-lg">
               <a href='https://www.ucp.edu.co/noticias/estudiantes-internacionales-visitan-la-universidad-por-el-programa-delfin/' target='_blank' rel="noopener noreferrer" className="block mb-4">
                 <img src={estudiantes} alt="Verano de investigación" className="w-full h-auto object-cover rounded" />
@@ -69,15 +70,17 @@ function Inicio() {
             </article>
           </div>
 
-          <div className="w-full lg:w-1/4 border-t-2 lg:border-t-0 lg:border-l-2 border-black pt-6 lg:pt-0 lg:pl-6">
+          <div className="w-full lg:w-1/4 border-t-2 lg:border-t-0 lg:border-l-2 border-black pt-6 lg:pt-0 lg:pl-6 px-4 sm:px-6 lg:px-8">
             {smallArticles.map((article, index) => (
               <article key={index} className="mb-6 last:mb-0">
                 <a href={article.url} target='_blank' rel="noopener noreferrer" className="block mb-2">
-                  <img
-                    src={article.image}
-                    alt={article.title}
-                    className="w-full h-full max-h-48 object-cover rounded"
-                  />
+                  <div className="w-full h-48 overflow-hidden">
+                    <img
+                      src={article.image}
+                      alt={article.title}
+                      className="w-full h-full object-cover rounded"
+                    />
+                  </div>
                 </a>
                 <h3 className="text-base sm:text-lg font-semibold mb-2">{article.title}</h3>
                 <div className="text-xs text-gray-500">
@@ -158,6 +161,7 @@ function Inicio() {
           </div>
         </div>
       </main>
+  
       <Footer />
     </div>
   );
