@@ -147,7 +147,7 @@ function Inicio() {
         <Carousel />
 
         <div className="pb-8 px-4 sm:px-6 lg:px-8 border-t border-t-custom-blue-2 border-t-4 mx-4 sm:mx-8 rounded">
-          <p className='font-semibold text-2xl sm:text-3xl lg:text-4xl py-4 text-center'>Nuestros aliados</p>
+          <p className='font-semibold text-2xl sm:text-3xl lg:text-4xl py-4'>Nuestros aliados</p>
           <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center">
             <div className="w-full sm:w-1/2 mb-6 sm:mb-0 flex justify-center">
               <img src={resinas} alt="Distri Resinas" className="w-full max-w-xs sm:max-w-md h-auto object-contain" />
