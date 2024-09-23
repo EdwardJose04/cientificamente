@@ -15,6 +15,10 @@ function Proyectos() {
   const [proyectoActual, setProyectoActual] = useState(0); // Índice del proyecto actual
   const [showModal, setShowModal] = useState(false); // Controla la visibilidad del modal
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   // Función para abrir el modal
   const handleModalClick = () => {
     setShowModal(true);

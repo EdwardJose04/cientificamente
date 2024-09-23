@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import Header from '../../header/Header';
 import Footer from '../../footer/Footer';
@@ -7,6 +7,11 @@ import Lottie from 'lottie-react';
 
 // Componente principal de la página de contacto
 function Contacto() {
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   // Estado para manejar los datos del formulario
   const [formData, setFormData] = useState({
     nombre: '',

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from '../../header/Header'
 import Footer from '../../footer/Footer'
 import Biblioteca from '../../../assets/img/about/about.svg'
@@ -8,6 +8,11 @@ import Maria from '../../../assets/img/about/maria.png'
 import Liliana from '../../../assets/img/about/liliana.png'
 
 function About() {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="min-h-screen">
       {/* Componente Header */}

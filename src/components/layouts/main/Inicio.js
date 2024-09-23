@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../../header/Header';
 import Footer from '../../footer/Footer';
 import estudiantes from '../../../assets/img/inicio/estudiantes.jpeg'
@@ -11,6 +11,11 @@ import resinas from '../../../assets/img/inicio/resinas.svg'
 import Carousel from './carousel/Carousel';
 
 function Inicio() {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const smallArticles = [
     {
       title: "La legitimidad, factor determinante en el proceso de paz",
