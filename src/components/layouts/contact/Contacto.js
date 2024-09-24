@@ -7,7 +7,7 @@ import Lottie from 'lottie-react';
 
 // Componente principal de la página de contacto
 function Contacto() {
-  
+  // scroll
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
