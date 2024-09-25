@@ -5,14 +5,11 @@ import Footer from '../../footer/Footer';
 import correoEnviado from '../../../assets/json/mensajeEnviado.json';
 import Lottie from 'lottie-react';
 
-// Componente principal de la página de contacto
 function Contacto() {
-  // scroll
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Estado para manejar los datos del formulario
   const [formData, setFormData] = useState({
     nombre: '',
     apellido: '',
@@ -20,19 +17,15 @@ function Contacto() {
     asunto: '',
     mensaje: ''
   });
-  // Estado para controlar la visibilidad del mensaje de éxito
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
-  // Función para actualizar el estado del formulario cuando se modifican los campos
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
 
-  // Función para manejar el envío del formulario
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Preparar los parámetros para la plantilla de correo
     const templateParams = {
       to_name: 'Cientifica Mente',
       from_name: `${formData.nombre} ${formData.apellido}`,
@@ -42,7 +35,6 @@ function Contacto() {
       message: formData.mensaje
     };
 
-    // Enviar el correo usando emailjs
     emailjs.send(
       'service_45p6xnv',
       'template_iqz5kib',
@@ -50,31 +42,24 @@ function Contacto() {
       'seVqo3Bm6pByw6CJz'
     )
       .then((response) => {
-        // Mostrar mensaje de éxito y limpiar el formulario
         setShowSuccessMessage(true);
         setFormData({ nombre: '', apellido: '', correo: '', asunto: '', mensaje: '' });
-        // Ocultar el mensaje de éxito después de 3 segundos
         setTimeout(() => setShowSuccessMessage(false), 3000);
       }, (err) => {
-        // Mostrar alerta en caso de error
         alert('Hubo un problema al enviar el mensaje. Por favor, intenta de nuevo.');
       });
   };
 
-  // Renderizado del componente
   return (
     <div>
       <Header />
       <div className="max-w-4xl mx-auto mt-10 mb-10 px-4 relative">
-        {/* Mensaje de éxito con animación Lottie */}
         {showSuccessMessage && (
           <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg shadow-lg p-6 z-50">
-            <Lottie animationData={correoEnviado} loop={true} style={{width: 400, height: 200}} />
+            <Lottie animationData={correoEnviado} loop={true} style={{ width: 400, height: 200 }} />
           </div>
         )}
-        {/* Formulario de contacto */}
         <form className="w-full px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
-          {/* Campos de nombre y apellido */}
           <div className="flex mb-4">
             <div className="w-1/2 pr-2">
               <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="nombre">
@@ -105,7 +90,6 @@ function Contacto() {
               />
             </div>
           </div>
-          {/* Campo de correo electrónico */}
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="correo">
               Correo
@@ -120,7 +104,6 @@ function Contacto() {
               required
             />
           </div>
-          {/* Campo de asunto */}
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="asunto">
               Asunto
@@ -135,7 +118,6 @@ function Contacto() {
               required
             />
           </div>
-          {/* Campo de mensaje */}
           <div className="mb-6">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="mensaje">
               Mensaje
@@ -150,20 +132,16 @@ function Contacto() {
               required
             ></textarea>
           </div>
-          {/* Botón de envío */}
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col items-start">
             <button
-              className="bg-custom-blue hover:bg-custom-blue-2 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-custom-blue hover:bg-custom-blue-2 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-4"
               type="submit"
             >
               Enviar
             </button>
+            <p>O escríbenos al siguiente correo: <span className='font-semibold'>investigaciones@ucp.edu.co</span></p>
           </div>
         </form>
-        {/* Información adicional de contacto */}
-        <div>
-          <p>O escríbenos al siguiente correo: <span className='font-semibold'>investigaciones@ucp.edu.co</span></p>
-        </div>
       </div>
       <Footer />
     </div>
