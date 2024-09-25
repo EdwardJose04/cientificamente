@@ -115,6 +115,7 @@
     border-radius: 9999px;
     font-weight: 600;
     font-size: 1.125rem;
+    padding: 2.4rem;
     animation: pulsate 1s ease-in-out infinite;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   }
