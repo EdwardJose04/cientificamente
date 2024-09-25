@@ -102,7 +102,7 @@ function Proyectos() {
             <div className="flex flex-col md:flex-row items-start mx-8">
               <div className="text-container md:w-2/3 p-4 relative flex flex-col">
                 <div className="flex-grow">
-                  <h2 className="project-title text-2xl md:text-4xl font-semibold mb-4 text-custom-blue-2 font-poppins font-extrabold">
+                  <h2 className="project-title text-2xl md:text-4xl font-semibold mb-4 text-custom-blue-2 pt-12 font-poppins font-extrabold">
                     {proyectos.categorias[categoriaActual].proyectos[proyectoActual].titulo}
                   </h2>
                   <p className="project-description text-gray-900 mb-4 text-base md:text-lg">
