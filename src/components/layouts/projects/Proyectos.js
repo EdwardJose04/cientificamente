@@ -1,18 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Header from '../../header/Header';
 import Footer from '../../footer/Footer';
 import { Play } from 'lucide-react';
-import proyectos from '../../../assets/json/proyectos';
+import useProjects from '../../hooks/useProjects';
 import filtro from '../../../assets/img/proyectos/filtro.svg';
 import right from '../../../assets/img/proyectos/right.svg';
 import left from '../../../assets/img/proyectos/left.svg';
 import '.././../../assets/css/proyectos.css'
 
 function Proyectos() {
-  const [categoriaActual, setCategoriaActual] = useState(0);
-  const [mostrarFiltro, setMostrarFiltro] = useState(false);
-  const [proyectoActual, setProyectoActual] = useState(0);
-  const [showModal, setShowModal] = useState(false);
+  const {
+    categoriaActual,
+    mostrarFiltro,
+    proyectoActual,
+    showModal,
+    cambiarCategoria,
+    siguienteProyecto,
+    anteriorProyecto,
+    toggleModal,
+    cantidadProyectos,
+    proyectos
+  } = useProjects();
 
   useEffect(() => {
     document.title = "Proyectos | Cientifica Mente";
@@ -22,52 +30,6 @@ function Proyectos() {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleModalClick = () => {
-    setShowModal(true);
-  };
-
-  const handleCloseModal = () => {
-    setShowModal(false);
-  };
-
-  useEffect(() => {
-    const indexConstruccionPaz = proyectos.categorias.findIndex(
-      (categoria) => categoria.nombre === 'Construcción de paz'
-    );
-    if (indexConstruccionPaz !== -1) {
-      setCategoriaActual(indexConstruccionPaz);
-    }
-  }, []);
-
-  const cambiarCategoria = (index) => {
-    if (categoriaActual === index) {
-      setMostrarFiltro(!mostrarFiltro);
-    } else {
-      setCategoriaActual(index);
-      setMostrarFiltro(false);
-      setProyectoActual(0);
-    }
-  };
-
-  const siguienteProyecto = () => {
-    setProyectoActual(
-      (prev) =>
-        (prev + 1) % proyectos.categorias[categoriaActual].proyectos.length
-    );
-  };
-
-  const anteriorProyecto = () => {
-    setProyectoActual(
-      (prev) =>
-        (prev - 1 + proyectos.categorias[categoriaActual].proyectos.length) %
-        proyectos.categorias[categoriaActual].proyectos.length
-    );
-  };
-
-  const cantidadProyectos = categoriaActual !== null
-    ? proyectos.categorias[categoriaActual].proyectos.length
-    : 0;
-
   return (
     <div>
       <Header />
@@ -75,7 +37,7 @@ function Proyectos() {
       <main className="container mx-auto px-4 py-8 mt-[32px] mb-[72px]">
         <div className="flex flex-col md:flex-row items-center relative py-4">
           <button
-            onClick={() => setMostrarFiltro(!mostrarFiltro)}
+            onClick={() => cambiarCategoria(categoriaActual)}
             className="flex items-center px-4 py-8 rounded mb-4 md:mb-0"
           >
             <img src={filtro} alt="Filtro" className="mr-2 h-8 w-auto" />
@@ -136,7 +98,7 @@ function Proyectos() {
                   alt={proyectos.categorias[categoriaActual].proyectos[proyectoActual].titulo}
                   className="w-full h-auto object-cover"
                 />
-                <button className="absolute top-4 right-4 animate-pulse bg-custom-blue-2 rounded-full p-2 shadow-md" onClick={handleModalClick}>
+                <button className="absolute top-4 right-4 animate-pulse bg-custom-blue-2 rounded-full p-2 shadow-md" onClick={toggleModal}>
                   <Play size={16} className="text-white fill-current" />
                 </button>
 
@@ -146,7 +108,7 @@ function Proyectos() {
                       <div className="h-full">
                         <button
                           className="float-right bg-red-600 text-white font-semibold my-1 px-3 py-1 rounded-lg hover:bg-red-700"
-                          onClick={handleCloseModal}
+                          onClick={toggleModal}
                         >
                           Cerrar
                         </button>
