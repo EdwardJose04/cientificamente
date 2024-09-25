@@ -13,6 +13,10 @@ import Carousel from './carousel/Carousel';
 function Inicio() {
 
   useEffect(() => {
+    document.title = "Inicio | Cientifica Mente";
+  }, []);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 

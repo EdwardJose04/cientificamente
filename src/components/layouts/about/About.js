@@ -12,6 +12,10 @@ function About() {
     window.scrollTo(0, 0);
   }, []);
 
+  useEffect(() => {
+    document.title = "Nosotros | Cientifica Mente";
+  }, []);
+
   return (
     <div className="min-h-screen">
       <Header />

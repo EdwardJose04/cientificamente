@@ -6,6 +6,11 @@ import correoEnviado from '../../../assets/json/mensajeEnviado.json';
 import Lottie from 'lottie-react';
 
 function Contacto() {
+
+  useEffect(() => {
+    document.title = "Contacto | Cientifica Mente";
+  }, []);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

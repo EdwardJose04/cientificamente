@@ -15,6 +15,10 @@ function Proyectos() {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
+    document.title = "Proyectos | Cientifica Mente";
+  }, []);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
