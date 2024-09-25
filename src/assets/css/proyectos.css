@@ -30,7 +30,7 @@
     top: 20px; /* Ajustado para bajar más la línea superior */
     left: 0;
     width: 50%; /* Ajustado para mejor alineación */
-    height: 2px;
+    height: 3px;
     border-radius: 100% 0 0 100%; 
     background: linear-gradient(to right, white, #2C5E77); 
 }
@@ -38,7 +38,7 @@
 .line-vertical {
     top: 20px; /* Ajustado para coincidir con la línea horizontal */
     left: 50%; /* Centramos la línea vertical */
-    width: 2px;
+    width: 4px;
     height: 100%;
     background: linear-gradient(to left, white, #2C5E77); 
 }
@@ -47,7 +47,7 @@
     bottom: -6.5%; /* Ajustado para dar más margen en la parte inferior */
     left: 50%;
     width: 50%;
-    height: 2px;
+    height: 3px;
     border-radius: 0 100% 100% 0; 
     background: linear-gradient(to left, white, #2C5E77); 
 }
