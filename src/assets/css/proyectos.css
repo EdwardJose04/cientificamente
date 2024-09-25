@@ -11,50 +11,52 @@
     flex-direction: column;
     position: relative;
     max-width: 50%;
+    padding-right: 20px; /* Añadido para dar más espacio entre el texto y la imagen */
 }
 
 .image-container {
     position: relative;
-    margin-left: 100px;
+    margin-left: 60px; /* Ajustado el margen para mejorar el alineamiento */
 }
 
 .line-horizontal-top,
 .line-vertical,
 .line-horizontal-bottom {
     position: absolute;
-    background: linear-gradient(to right, white, #2C5E77); /* Degradado de blanco a azul */
+    background: linear-gradient(to right, white, #2C5E77); 
 }
 
 .line-horizontal-top {
-    top: 0;
-    left: 10;
-    width: 20%;
+    top: 20px; /* Ajustado para bajar más la línea superior */
+    left: 0;
+    width: 50%; /* Ajustado para mejor alineación */
     height: 2px;
-    border-radius: 100% 0 0 100%; /* Solo el lado izquierdo tiene border-radius del 100% */
-    background: linear-gradient(to right, white, #2C5E77); /* Degradado de blanco a azul */
+    border-radius: 100% 0 0 100%; 
+    background: linear-gradient(to right, white, #2C5E77); 
 }
 
 .line-vertical {
-    top: 0;
-    left: calc(60% - 1px); /* Alinea con la línea horizontal superior */
+    top: 20px; /* Ajustado para coincidir con la línea horizontal */
+    left: 50%; /* Centramos la línea vertical */
     width: 2px;
     height: 100%;
-    background: linear-gradient(to left, white, #2C5E77); /* Degradado de blanco a azul */
+    background: linear-gradient(to left, white, #2C5E77); 
 }
 
 .line-horizontal-bottom {
-    bottom: 0;
-    left: calc(60% - 1px); /* Alinea con la línea vertical */
-    width: 40%;
+    bottom: -6.5%; /* Ajustado para dar más margen en la parte inferior */
+    left: 50%;
+    width: 50%;
     height: 2px;
-    border-radius: 0 100% 100% 0; /* Solo el lado derecho tiene border-radius del 100% */
-    background: linear-gradient(to left, white, #2C5E77); /* Degradado de blanco a azul */
+    border-radius: 0 100% 100% 0; 
+    background: linear-gradient(to left, white, #2C5E77); 
 }
 
 /* Responsividad */
 @media (max-width: 768px) {
     .project-container {
         align-items: center;
+        flex-direction: column;
     }
 
     .text-container {
