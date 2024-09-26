@@ -70,7 +70,7 @@ const proyectos = {
         },
         {
           id: 4,
-          titulo: "¡Echale gafa!",
+          titulo: "¡Échale gafa!",
           descripcion: "Estudio transcultutral sobre violencia de género y sus efectos en la salud mental de los jovenes ",
           imagenes: [echale_gafa],
           genially: "https://view.genially.com/66a520a6c6b9b97645c8b377"
