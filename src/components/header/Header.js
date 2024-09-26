@@ -63,7 +63,7 @@ function Header() {
             <ul className="flex items-center space-x-6">
               {/* Enlaces de navegación */}
               <Link to="/sobre-nosotros">
-                <li className="hover:text-black hover:bg-white hover:rounded-full hover:py-2 px-5 font-semibold">¿Quienes somos?</li>
+                <li className="hover:text-black hover:bg-white hover:rounded-full hover:py-2 px-5 font-semibold">¿Quiénes somos?</li>
               </Link>
               <li className="h-8 border-l border-white"></li>
               <Link to="/proyectos">
