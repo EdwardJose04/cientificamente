@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Play, ChevronLeft, ChevronRight } from 'lucide-react';
 import cemab from '../../../../assets/img/inicio/carouselCEMAB.svg';
 import capaz from '../../../../assets/img/inicio/carouselCAPAZ.svg';
@@ -6,16 +6,11 @@ import adultez from '../../../../assets/img/inicio/carouselADULTEZ.svg';
 import photoboy from '../../../../assets/img/inicio/carouselPHOTOBOY.svg';
 import iuma from '../../../../assets/img/inicio/carouselIUMA.svg';
 
-// Componente principal del carrusel
 const Carousel = () => {
-  // Estado para manejar el índice actual del carrusel
   const [currentIndex, setCurrentIndex] = useState(0);
-  // Estado para controlar la visibilidad del modal
   const [showModal, setShowModal] = useState(false);
-  // Estado para almacenar la URL del contenido Genially
   const [geniallyUrl, setGeniallyUrl] = useState('');
 
-  // Array de objetos con la información de cada elemento del carrusel
   const carouselItems = [
     { image: cemab, alt: 'CEMAB', genially: "https://view.genially.com/66a3d646e0c64b0109e7d319" },
     { image: capaz, alt: 'CAPAZ', genially: "https://view.genially.com/66a3b0b1298c760bb31d63c3" },
@@ -26,7 +21,6 @@ const Carousel = () => {
 
   const totalItems = carouselItems.length;
 
-  // Efecto para cambiar automáticamente la imagen cada 3 segundos
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % totalItems);
@@ -34,7 +28,6 @@ const Carousel = () => {
     return () => clearInterval(timer);
   }, [totalItems]);
 
-  // Función para calcular la posición y escala de cada elemento del carrusel
   const getItemPosition = (index) => {
     const theta = ((index - currentIndex + totalItems) % totalItems) / totalItems * Math.PI * 2;
     const radius = 400;
@@ -48,7 +41,6 @@ const Carousel = () => {
     };
   };
 
-  // Funciones para manejar la navegación del carrusel
   const handlePrev = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + totalItems) % totalItems);
   };
@@ -57,20 +49,41 @@ const Carousel = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % totalItems);
   };
 
-  // Función para abrir el modal con el contenido Genially
   const handleModalClick = (geniallyUrl) => {
     setGeniallyUrl(geniallyUrl);
     setShowModal(true);
   };
 
-  // Función para cerrar el modal
-  const handleCloseModal = () => {
+  const handleCloseModal = useCallback(() => {
     setShowModal(false);
+  }, []);
+
+  // Nuevo efecto para manejar el cierre del modal con la tecla Esc
+  useEffect(() => {
+    const handleEscKey = (event) => {
+      if (event.key === 'Escape') {
+        handleCloseModal();
+      }
+    };
+
+    if (showModal) {
+      document.addEventListener('keydown', handleEscKey);
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscKey);
+    };
+  }, [showModal, handleCloseModal]);
+
+  // Función para manejar clics fuera del modal
+  const handleOutsideClick = (event) => {
+    if (event.target.classList.contains('modal-overlay')) {
+      handleCloseModal();
+    }
   };
 
   return (
     <div className="relative w-full h-[620px] overflow-hidden">
-      {/* Contenedor de los elementos del carrusel */}
       <div className="absolute w-full h-full left-1/2 top-1/2 -translate-y-1/2">
         {carouselItems.map((item, index) => (
           <div
@@ -99,7 +112,6 @@ const Carousel = () => {
           </div>
         ))}
       </div>
-      {/* Controles de navegación del carrusel */}
       <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 flex items-center space-x-4">
         <button onClick={handlePrev} className="text-black">
           <ChevronLeft size={24} />
@@ -118,10 +130,12 @@ const Carousel = () => {
         </button>
       </div>
 
-      {/* Modal para mostrar el contenido Genially */}
       {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div className="p-4 rounded-lg w-11/12 h-5/6">
+        <div 
+          className="fixed inset-0 flex bg-gray-900 bg-opacity-50 justify-center items-center z-50 modal-overlay"
+          onClick={handleOutsideClick}
+        >
+          <div className="p-4 rounded-lg  w-11/12 h-5/6">
             <div className="h-full">
               <button
                 className="float-right bg-red-600 text-white font-semibold my-1 px-3 py-1 rounded-lg hover:bg-red-700"
