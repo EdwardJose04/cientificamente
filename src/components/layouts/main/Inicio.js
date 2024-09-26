@@ -174,10 +174,10 @@ function Inicio() {
 
         <div className="bg-custom-blue my-4 py-4 px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-center items-center text-center">
           <h1 className='text-white text-xl sm:text-2xl lg:text-3xl font-semibold font-poppins mb-2 sm:mb-0'>
-            <span className="relative inline-block"> Ultimas investigaciones </span>
+            <span className="relative inline-block"> Últimas investigaciones </span>
           </h1>
           <span className="hidden sm:inline-block text-white px-2 sm:px-4">●</span>
-          <span className="text-white text-xl sm:text-2xl lg:text-3xl font-semibold font-poppins">Ultimas investigaciones</span>
+          <span className="text-white text-xl sm:text-2xl lg:text-3xl font-semibold font-poppins">Últimas investigaciones</span>
         </div>
 
         <Carousel />

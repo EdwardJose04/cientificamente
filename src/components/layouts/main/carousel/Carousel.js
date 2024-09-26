@@ -100,7 +100,8 @@ const Carousel = () => {
               <img
                 src={item.image}
                 alt={item.alt}
-                className="w-auto h-[500px] object-cover rounded-lg"
+                className="w-auto h-[500px] object-cover rounded-lg cursor-pointer"
+                onClick={() => handleModalClick(item.genially)}
               />
               <button
                 className="absolute top-4 right-4 animate-pulse bg-custom-blue-2 rounded-full p-2 shadow-md"
