@@ -4,55 +4,59 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto; /* Centramos el contenedor */
 }
 
-.text-container {
+.project-text-container {
     display: flex;
     flex-direction: column;
     position: relative;
     max-width: 400px;
-    height: 100%;
-    padding-right: 20px; /* Añadido para dar más espacio entre el texto y la imagen */
+    height: auto;
+    padding-right: 20px;
 }
 
-.image-container {
+.project-image-container {
     position: relative;
-    margin-left: 100px; /* Ajustado el margen para mejorar el alineamiento */
+    margin-left: 50px;
+    max-width: 100%; /* Asegura que la imagen ocupe el 100% de su contenedor */
+    margin-left: 100px;
+    margin-bottom: 30px;
 }
 
-.line-horizontal-top,
-.line-vertical,
-.line-horizontal-bottom {
+.project-line-horizontal-top,
+.project-line-vertical,
+.project-line-horizontal-bottom {
     position: absolute;
 }
 
-.line-horizontal-top {
-    top: 20px; /* Ajustado para bajar más la línea superior */
-    left: 20.2%;
-    width: 30%; /* Ajustado para mejor alineación */
+.project-line-horizontal-top {
+    top: 0;
+    left: 10%; /* Centrado dinámico */
+    width: 40.2%; /* Se ajusta para que la línea cubra un 80% del contenedor */
     height: 3px;
     border-radius: 100% 0 0 100%; 
-    background: linear-gradient(to right, white, #2C5E77); 
+    background: linear-gradient(to right, white, #2C5E77);
 }
 
-.line-vertical {
-    top: 20px; /* Ajustado para coincidir con la línea horizontal */
-    left: 50%; /* Centramos la línea vertical */
-    width: 4px;
-    height: 100%;
-    background:#2C5E77; 
-}
-
-.line-horizontal-bottom {
-    bottom: -6%; /* Ajustado para dar más margen en la parte inferior */
+.project-line-vertical {
     left: 50%;
-    width: 30%;
-    height: 4px;
-    background: #2C5E77; 
+    width: 4px;
+    height: 100%; /* Se ajusta a un 80% de la altura del contenedor */
+    background: #2C5E77;
 }
 
-/* Agregamos el punto en la línea inferior */
-.line-horizontal-bottom::after {
+.project-line-horizontal-bottom {
+    bottom: 0;
+    left: 50%; /* Centrado dinámico */
+    width: 40%; /* Ajustamos para que cubra el 80% del contenedor */
+    height: 4px;
+    background: #2C5E77;
+}
+
+.project-line-horizontal-bottom::after {
     content: '';
     width: 15px;
     height: 15px;
@@ -68,32 +72,24 @@
     .project-container {
         align-items: center;
         flex-direction: column;
+        width: 100%;
     }
 
-    .text-container {
-        max-width: 90%; /* Permitir que el texto use más ancho en pantallas pequeñas */
+    .project-text-container {
+        max-width: 100%;
         text-align: center;
         margin-right: 0;
         margin-bottom: 20px;
     }
 
-    .image-container {
+    .project-image-container {
         margin-left: 0;
-        max-width: 100%; /* Aseguramos que la imagen use el 100% del contenedor */
+        max-width: 100%;
     }
 
-    .line-horizontal-top,
-    .line-vertical,
-    .line-horizontal-bottom {
-        display: none; /* Ocultar líneas en pantallas pequeñas */
-    }
-}
-
-@media (max-width: 988px) {
-    .line-horizontal-top,
-    .line-vertical,
-    .line-horizontal-bottom {
-        display: none; /* Ocultar líneas en pantallas pequeñas */
+    .project-line-horizontal-top,
+    .project-line-vertical,
+    .project-line-horizontal-bottom {
+        display: none;
     }
 }
-

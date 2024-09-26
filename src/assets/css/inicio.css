@@ -44,15 +44,15 @@
 .image-wrapper {
   height: 100%;
   transition: transform 0.3s ease-in-out;
-  border-radius: 0.3rem; /* Añadido border-radius a la imagen */
-  overflow: hidden; /* Asegura que la imagen respete el border-radius */
+  border-radius: 0.3rem;
+  overflow: hidden;
 }
 
 .image-wrapper img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 0.3rem; /* Añadido border-radius a la imagen */
+  border-radius: 0.3rem;
 }
 
 .image-text {

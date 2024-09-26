@@ -60,7 +60,7 @@ function Proyectos() {
     <div>
       <Header />
 
-      <main className="container mx-auto px-4 py-8 mb-[72px]">
+      <main className="container mx-auto px-4 mb-[72px]">
         <div className="flex flex-col md:flex-row items-center relative py-4">
           <button
             onClick={() => cambiarCategoria(categoriaActual)}
@@ -91,69 +91,66 @@ function Proyectos() {
 
         {categoriaActual !== null && (
           <div className="project-container">
-            <div className="flex flex-col md:flex-row items-start mx-8">
-              <div className="text-container md:w-2/3 p-4 relative flex flex-col">
-                <div className="flex-grow">
-                  <h2 className="project-title text-2xl md:text-4xl font-semibold mb-4 text-custom-blue-2 pt-12 font-poppins font-extrabold">
-                    {proyectos.categorias[categoriaActual].proyectos[proyectoActual].titulo}
-                  </h2>
-                  <p className="project-description text-gray-900 mb-4 text-base md:text-lg">
-                    {proyectos.categorias[categoriaActual].proyectos[proyectoActual].descripcion}
-                  </p>
-                </div>
-                {cantidadProyectos > 1 && (
-                  <div className="flex justify-center mt-4">
-                    <button
-                      onClick={anteriorProyecto}
-                      className="mr-4"
-                    >
-                      <img src={left} className='h-8 w-auto' alt="Anterior" />
-                    </button>
-                    <button
-                      onClick={siguienteProyecto}
-                    >
-                      <img src={right} className='h-8 w-auto' alt="Siguiente" />
-                    </button>
-                  </div>
-                )}
+          <div className="flex flex-col md:flex-row items-start mx-8">
+            <div className="project-text-container md:w-2/3 p-4 relative flex flex-col">
+              <div className="flex-grow">
+                <h2 className="project-title text-2xl md:text-4xl font-semibold mb-4 text-custom-blue-2 pt-12 font-poppins font-extrabold">
+                  {proyectos.categorias[categoriaActual].proyectos[proyectoActual].titulo}
+                </h2>
+                <p className="project-description text-gray-900 mb-4 text-base md:text-lg">
+                  {proyectos.categorias[categoriaActual].proyectos[proyectoActual].descripcion}
+                </p>
               </div>
+              {cantidadProyectos > 1 && (
+                <div className="flex justify-center mt-4">
+                  <button onClick={anteriorProyecto} className="mr-4">
+                    <img src={left} className="h-8 w-auto" alt="Anterior" />
+                  </button>
+                  <button onClick={siguienteProyecto}>
+                    <img src={right} className="h-8 w-auto" alt="Siguiente" />
+                  </button>
+                </div>
+              )}
+            </div>
+        
+            <div className="project-image-container md:w-1/3">
+              <img
+                src={proyectos.categorias[categoriaActual].proyectos[proyectoActual].imagenes[0]}
+                alt={proyectos.categorias[categoriaActual].proyectos[proyectoActual].titulo}
+                className="w-full h-auto object-contain cursor-pointer"
+                onClick={toggleModal}
+              />
+              <button className="absolute top-6 right-2 bg-custom-blue-2 rounded-full p-2 shadow-md" onClick={toggleModal}>
+                <Play size={16} className="text-white fill-current" />
+              </button>
+            </div>
+          </div>
+        
+          <div className="project-line-horizontal-top"></div>
+          <div className="project-line-vertical"></div>
+          <div className="project-line-horizontal-bottom"></div>
+        </div>
+        
+        )}
 
-              <div className="image-container md:w-1/3 relative">
-                <img
-                  src={proyectos.categorias[categoriaActual].proyectos[proyectoActual].imagenes[0]}
-                  alt={proyectos.categorias[categoriaActual].proyectos[proyectoActual].titulo}
-                  className="w-full h-auto object-cover cursor-pointer" onClick={toggleModal}
-                />
-                <button className="absolute top-8 right-4 animate-pulse bg-custom-blue-2 rounded-full p-2 shadow-md" onClick={toggleModal}>
-                  <Play size={16} className="text-white fill-current" />
+        {showModal && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+            <div ref={modalRef} className="p-4 rounded-lg w-11/12 h-5/6">
+              <div className="h-full">
+                <button
+                  className="float-right bg-red-600 text-white font-semibold my-1 px-3 py-1 rounded-lg hover:bg-red-700"
+                  onClick={toggleModal}
+                >
+                  Cerrar
                 </button>
-
-                {showModal && (
-                  <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-                    <div ref={modalRef} className="p-4 rounded-lg w-11/12 h-5/6">
-                      <div className="h-full">
-                        <button
-                          className="float-right bg-red-600 text-white font-semibold my-1 px-3 py-1 rounded-lg hover:bg-red-700"
-                          onClick={toggleModal}
-                        >
-                          Cerrar
-                        </button>
-                        <iframe
-                          title="Porfolio científicamente"
-                          src={proyectos.categorias[categoriaActual].proyectos[proyectoActual].genially}
-                          className="w-full h-full"
-                          allowFullScreen
-                        />
-                      </div>
-                    </div>
-                  </div>
-                )}
+                <iframe
+                  title="Porfolio científicamente"
+                  src={proyectos.categorias[categoriaActual].proyectos[proyectoActual].genially}
+                  className="w-full h-full"
+                  allowFullScreen
+                />
               </div>
             </div>
-
-            <div className="line-horizontal-top"></div>
-            <div className="line-vertical"></div>
-            <div className="line-horizontal-bottom"></div>
           </div>
         )}
       </main>
