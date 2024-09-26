@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Header from '../../header/Header';
 import Footer from '../../footer/Footer';
 import estudiantes from '../../../assets/img/inicio/estudiantes.jpeg'
@@ -11,7 +11,6 @@ import resinas from '../../../assets/img/inicio/resinas.svg'
 import Carousel from './carousel/Carousel';
 
 function Inicio() {
-
   useEffect(() => {
     document.title = "Inicio | Cientifica Mente";
   }, []);
@@ -50,8 +49,30 @@ function Inicio() {
     setShowPortfolio(true);
   };
 
-  const handleClosePortfolio = () => {
+  const handleClosePortfolio = useCallback(() => {
     setShowPortfolio(false);
+  }, []);
+
+  useEffect(() => {
+    const handleEscKey = (event) => {
+      if (event.key === 'Escape') {
+        handleClosePortfolio();
+      }
+    };
+
+    if (showPortfolio) {
+      document.addEventListener('keydown', handleEscKey);
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscKey);
+    };
+  }, [showPortfolio, handleClosePortfolio]);
+
+  const handleOutsideClick = (event) => {
+    if (event.target.classList.contains('modal-overlay')) {
+      handleClosePortfolio();
+    }
   };
 
   return (
@@ -130,8 +151,11 @@ function Inicio() {
         </div>
 
         {showPortfolio && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 p-4 overflow-y-auto">
-            <div className="bg-white p-4 rounded-lg w-full h-full sm:w-11/12 sm:h-5/6 relative">
+          <div 
+            className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 p-4 overflow-y-auto modal-overlay"
+            onClick={handleOutsideClick}
+          >
+            <div className="p-4 rounded-lg w-full h-full sm:w-11/12 sm:h-5/6 relative bg-white">
               <button
                 className="absolute top-2 right-2 bg-red-600 text-white font-semibold px-3 py-1 rounded-lg hover:bg-red-700 text-sm transition duration-300"
                 onClick={handleClosePortfolio}

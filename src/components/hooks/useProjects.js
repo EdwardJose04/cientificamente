@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import proyectos from '../../assets/json/proyectos'
 
 const useProjects = () => {
@@ -41,13 +41,33 @@ const useProjects = () => {
     );
   };
 
-  const toggleModal = () => {
-    setShowModal(!showModal);
-  };
+  const toggleModal = useCallback(() => {
+    setShowModal((prev) => !prev);
+  }, []);
+
+  const closeModal = useCallback(() => {
+    setShowModal(false);
+  }, []);
 
   const cantidadProyectos = categoriaActual !== null
     ? proyectos.categorias[categoriaActual].proyectos.length
     : 0;
+
+  useEffect(() => {
+    const handleEscKey = (event) => {
+      if (event.key === 'Escape') {
+        closeModal();
+      }
+    };
+
+    if (showModal) {
+      document.addEventListener('keydown', handleEscKey);
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscKey);
+    };
+  }, [showModal, closeModal]);
 
   return {
     categoriaActual,
@@ -58,6 +78,7 @@ const useProjects = () => {
     siguienteProyecto,
     anteriorProyecto,
     toggleModal,
+    closeModal,
     cantidadProyectos,
     proyectos
   };

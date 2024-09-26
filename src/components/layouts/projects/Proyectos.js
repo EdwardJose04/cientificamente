@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Header from '../../header/Header';
 import Footer from '../../footer/Footer';
 import { Play } from 'lucide-react';
@@ -22,6 +22,8 @@ function Proyectos() {
     proyectos
   } = useProjects();
 
+  const modalRef = useRef(null);
+
   useEffect(() => {
     document.title = "Proyectos | Cientifica Mente";
   }, []);
@@ -29,6 +31,30 @@ function Proyectos() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        toggleModal();
+      }
+    };
+
+    const handleEscKey = (event) => {
+      if (event.key === 'Escape') {
+        toggleModal();
+      }
+    };
+
+    if (showModal) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('keydown', handleEscKey);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleEscKey);
+    };
+  }, [showModal, toggleModal]);
 
   return (
     <div>
@@ -104,7 +130,7 @@ function Proyectos() {
 
                 {showModal && (
                   <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-                    <div className="p-4 rounded-lg w-11/12 h-5/6">
+                    <div ref={modalRef} className="p-4 rounded-lg w-11/12 h-5/6">
                       <div className="h-full">
                         <button
                           className="float-right bg-red-600 text-white font-semibold my-1 px-3 py-1 rounded-lg hover:bg-red-700"
