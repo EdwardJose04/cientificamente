@@ -6,7 +6,7 @@ import useProjects from '../../hooks/useProjects';
 import filtro from '../../../assets/img/proyectos/filtro.svg';
 import right from '../../../assets/img/proyectos/right.svg';
 import left from '../../../assets/img/proyectos/left.svg';
-import '.././../../assets/css/proyectos.css'
+import '.././../../assets/css/proyectos.css';
 
 function Proyectos() {
   const {
@@ -60,7 +60,7 @@ function Proyectos() {
     <div>
       <Header />
 
-      <main className="container mx-auto px-4 py-8 mt-[32px] mb-[72px]">
+      <main className="container mx-auto px-4 py-8 mb-[72px]">
         <div className="flex flex-col md:flex-row items-center relative py-4">
           <button
             onClick={() => cambiarCategoria(categoriaActual)}
@@ -68,7 +68,7 @@ function Proyectos() {
           >
             <img src={filtro} alt="Filtro" className="mr-2 h-8 w-auto" />
           </button>
-          {categoriaActual !== null && (
+          {categoriaActual !== null && ( 
             <span className='font-semibold text-xl md:text-2xl'>
               {proyectos.categorias[categoriaActual].nombre}
             </span>
@@ -124,7 +124,7 @@ function Proyectos() {
                   alt={proyectos.categorias[categoriaActual].proyectos[proyectoActual].titulo}
                   className="w-full h-auto object-cover"
                 />
-                <button className="absolute top-4 right-4 animate-pulse bg-custom-blue-2 rounded-full p-2 shadow-md" onClick={toggleModal}>
+                <button className="absolute top-8 right-4 animate-pulse bg-custom-blue-2 rounded-full p-2 shadow-md" onClick={toggleModal}>
                   <Play size={16} className="text-white fill-current" />
                 </button>
 

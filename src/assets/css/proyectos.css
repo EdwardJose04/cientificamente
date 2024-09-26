@@ -10,20 +10,20 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    max-width: 50%;
+    max-width: 400px;
+    height: 100%;
     padding-right: 20px; /* Añadido para dar más espacio entre el texto y la imagen */
 }
 
 .image-container {
     position: relative;
-    margin-left: 60px; /* Ajustado el margen para mejorar el alineamiento */
+    margin-left: 100px; /* Ajustado el margen para mejorar el alineamiento */
 }
 
 .line-horizontal-top,
 .line-vertical,
 .line-horizontal-bottom {
     position: absolute;
-    background: linear-gradient(to right, white, #2C5E77); 
 }
 
 .line-horizontal-top {
@@ -40,18 +40,28 @@
     left: 50%; /* Centramos la línea vertical */
     width: 4px;
     height: 100%;
-    background: linear-gradient(to left, white, #2C5E77); 
+    background:#2C5E77; 
 }
 
 .line-horizontal-bottom {
-    bottom: -6.5%; /* Ajustado para dar más margen en la parte inferior */
+    bottom: -6%; /* Ajustado para dar más margen en la parte inferior */
     left: 50%;
     width: 30%;
-    height: 3px;
-    border-radius: 0 100% 100% 0; 
-    background: linear-gradient(to left, white, #2C5E77); 
+    height: 4px;
+    background: #2C5E77; 
 }
 
+/* Agregamos el punto en la línea inferior */
+.line-horizontal-bottom::after {
+    content: '';
+    width: 15px;
+    height: 15px;
+    background-color: #2C5E77;
+    border-radius: 50%;
+    position: absolute;
+    right: 0px; /* Ajusta la distancia desde el borde derecho */
+    top: -6px;
+}
 /* Responsividad */
 @media (max-width: 768px) {
     .project-container {
