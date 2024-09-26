@@ -1,176 +1,177 @@
 .index-container {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.logo {
+  margin-bottom: 1.5rem;
+  max-width: 300px;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.images-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  width: calc(100% - 100px);
+}
+
+.image-container {
+  background: white;
+  border-radius: 0.4rem;
+  padding: 0.4rem;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+}
+
+.image-wrapper {
+  height: 100%;
+  transition: transform 0.3s ease-in-out;
+  border-radius: 0.3rem; /* Añadido border-radius a la imagen */
+  overflow: hidden; /* Asegura que la imagen respete el border-radius */
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.3rem; /* Añadido border-radius a la imagen */
+}
+
+.image-text {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 0.6rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+.image-container.top-row .image-text {
+  bottom: 0;
+  transform: translateY(100%);
+}
+
+.image-container.bottom-row .image-text {
+  top: 0;
+  transform: translateY(-100%);
+}
+
+.image-container.top-row.hovered .image-wrapper {
+  transform: translateY(-30%);
+}
+
+.image-container.bottom-row.hovered .image-wrapper {
+  transform: translateY(30%);
+}
+
+.image-container.hovered .image-text {
+  transform: translateY(0);
+}
+
+.image-title {
+  color: #008BC9;
+  margin-bottom: 0.4rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-align: left;
+}
+
+.image-text p {
+  margin: 0;
+  font-size: 0.8rem;
+  text-align: left;
+  line-height: 1.3;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+}
+
+.start-button {
+  background-color: #008BC9;
+  color: white;
+  width: 3.5rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 1rem;
+  animation: pulsate 1s ease-in-out infinite;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.start-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(0, 139, 201, 0.6);
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
   }
-  
-  .logo {
-    margin-bottom: 2rem;
-    max-width: 350px; /* Ajusta este valor según el tamaño deseado */
-    height: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  50% {
+    transform: scale(1.1);
   }
-  
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 1024px) {
   .content-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 1200px;
+    flex-direction: column;
   }
   
   .images-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    width: calc(100% - 120px);
-  }
-  
-  .image-container {
-    background: white;
-    border-radius: 0.5rem;
-    padding: 0.5rem;
-    transition: all 0.3s ease-in-out;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .image-container:hover {
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  }
-  
-  .image-wrapper {
-    flex-grow: 1;
-    overflow: hidden;
-    transition: flex-grow 0.3s ease-in-out;
-  }
-  
-  .image-wrapper img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .image-text {
-    background-color: rgba(255, 255, 255, 0.95);
-    padding: 0.75rem;
-    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-  }
-  
-  .image-container.top-row .image-text {
-    order: 1;
-  }
-  
-  .image-container.bottom-row .image-text {
-    order: -1;
-  }
-  
-  .image-container.hovered .image-text {
-    max-height: 200px;
-    opacity: 1;
-  }
-  
-  .image-container.hovered .image-wrapper {
-    flex-grow: 0.7;
-  }
-  
-  .image-title {
-    color: #008BC9;
-    margin-bottom: 0.5rem;
-    font-size: 1.25rem;
-    font-weight: 700;
-    text-align: left;
-  }
-  
-  .image-text p {
-    margin: 0;
-    font-size: 0.875rem;
-    text-align: left;
-    line-height: 1.4;
+    margin-bottom: 1.5rem;
   }
   
   .button-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100px;
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .images-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .index-container {
+    padding: 0.75rem;
   }
   
-  .start-button {
-    background-color: #008BC9;
-    color: white;
-    width: 4rem;
-    height: 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 9999px;
-    font-weight: 600;
-    font-size: 1.125rem;
-    animation: pulsate 1s ease-in-out infinite;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  .images-grid {
+    grid-template-columns: 1fr;
   }
   
-  .start-button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 15px rgba(0, 139, 201, 0.6);
+  .logo {
+    max-width: 75%;
   }
-  
-  @keyframes pulsate {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.1);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-
-  /* Media Queries for Responsiveness */
-  @media screen and (max-width: 1024px) {
-    .content-wrapper {
-      flex-direction: column;
-    }
-    
-    .images-grid {
-      width: 100%;
-      margin-bottom: 2rem;
-    }
-    
-    .button-container {
-      width: auto;
-    }
-  }
-
-  @media screen and (max-width: 768px) {
-    .images-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media screen and (max-width: 480px) {
-    .index-container {
-      padding: 1rem;
-    }
-    
-    .images-grid {
-      grid-template-columns: 1fr;
-    }
-    
-    .logo {
-      max-width: 80%;
-    }
-  }
+}
