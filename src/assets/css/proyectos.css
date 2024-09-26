@@ -6,7 +6,7 @@
     align-items: center;
     width: 100%;
     max-width: 1200px;
-    margin: 0 auto; /* Centramos el contenedor */
+    margin: 0 auto;
 }
 
 .project-text-container {
@@ -14,14 +14,16 @@
     flex-direction: column;
     position: relative;
     max-width: 400px;
-    height: auto;
+    min-height: 300px; /* Altura mínima para asegurar espacio para el contenido y las flechas */
+    height: 100%;
     padding-right: 20px;
+    padding-bottom: 60px; /* Espacio para las flechas de navegación */
 }
 
 .project-image-container {
     position: relative;
     margin-left: 50px;
-    max-width: 100%; /* Asegura que la imagen ocupe el 100% de su contenedor */
+    max-width: 100%;
     margin-left: 100px;
     margin-bottom: 30px;
 }
@@ -34,24 +36,24 @@
 
 .project-line-horizontal-top {
     top: 0;
-    left: 10%; /* Centrado dinámico */
-    width: 40.2%; /* Se ajusta para que la línea cubra un 80% del contenedor */
+    left: 10%;
+    width: 40.2%;
     height: 3px;
-    border-radius: 100% 0 0 100%; 
+    border-radius: 100% 0 0 100%;
     background: linear-gradient(to right, white, #2C5E77);
 }
 
 .project-line-vertical {
     left: 50%;
     width: 4px;
-    height: 100%; /* Se ajusta a un 80% de la altura del contenedor */
+    height: 100%;
     background: #2C5E77;
 }
 
 .project-line-horizontal-bottom {
     bottom: 0;
-    left: 50%; /* Centrado dinámico */
-    width: 40%; /* Ajustamos para que cubra el 80% del contenedor */
+    left: 50%;
+    width: 40%;
     height: 4px;
     background: #2C5E77;
 }
@@ -63,11 +65,21 @@
     background-color: #2C5E77;
     border-radius: 50%;
     position: absolute;
-    right: 0px; /* Ajusta la distancia desde el borde derecho */
+    right: 0px;
     top: -6px;
 }
 
-/* Responsividad */
+.navigation-arrows {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 300px;
+    left: 0;
+    right: 0;
+    padding: 10px 0;
+}
+
+/* Responsiveness */
 @media (max-width: 768px) {
     .project-container {
         align-items: center;
@@ -80,6 +92,7 @@
         text-align: center;
         margin-right: 0;
         margin-bottom: 20px;
+        padding-bottom: 80px; /* Aumentar el espacio para las flechas en móvil */
     }
 
     .project-image-container {
@@ -91,5 +104,9 @@
     .project-line-vertical,
     .project-line-horizontal-bottom {
         display: none;
+    }
+
+    .navigation-arrows {
+        bottom: 0; /* Asegura que las flechas estén en la parte inferior en móvil */
     }
 }

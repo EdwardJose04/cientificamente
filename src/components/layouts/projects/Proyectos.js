@@ -59,8 +59,7 @@ function Proyectos() {
       <Header />
 
       <main className="container mx-auto px-4 mb-[72px]">
-
-      <div className="flex flex-col items-start relative py-4 mt-4">
+        <div className="flex flex-col items-start relative py-4 mt-4">
           <label htmlFor="categoria-select" className="text-custom-blue-2 font-semibold mb-2">
             Categoria:
           </label>
@@ -96,7 +95,7 @@ function Proyectos() {
                   </p>
                 </div>
                 {cantidadProyectos > 1 && (
-                  <div className="flex justify-center mt-4">
+                  <div className="navigation-arrows">
                     <button onClick={anteriorProyecto} className="mr-4">
                       <img src={left} className="h-8 w-auto" alt="Anterior" />
                     </button>
