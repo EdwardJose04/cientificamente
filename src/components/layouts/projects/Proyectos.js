@@ -122,7 +122,7 @@ function Proyectos() {
                 <img
                   src={proyectos.categorias[categoriaActual].proyectos[proyectoActual].imagenes[0]}
                   alt={proyectos.categorias[categoriaActual].proyectos[proyectoActual].titulo}
-                  className="w-full h-auto object-cover"
+                  className="w-full h-auto object-cover cursor-pointer" onClick={toggleModal}
                 />
                 <button className="absolute top-8 right-4 animate-pulse bg-custom-blue-2 rounded-full p-2 shadow-md" onClick={toggleModal}>
                   <Play size={16} className="text-white fill-current" />

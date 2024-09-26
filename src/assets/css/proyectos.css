@@ -62,6 +62,7 @@
     right: 0px; /* Ajusta la distancia desde el borde derecho */
     top: -6px;
 }
+
 /* Responsividad */
 @media (max-width: 768px) {
     .project-container {
@@ -70,19 +71,29 @@
     }
 
     .text-container {
-        max-width: 100%;
+        max-width: 90%; /* Permitir que el texto use más ancho en pantallas pequeñas */
         text-align: center;
         margin-right: 0;
         margin-bottom: 20px;
     }
-    
+
     .image-container {
         margin-left: 0;
+        max-width: 100%; /* Aseguramos que la imagen use el 100% del contenedor */
     }
-    
+
     .line-horizontal-top,
     .line-vertical,
     .line-horizontal-bottom {
-        display: none;
+        display: none; /* Ocultar líneas en pantallas pequeñas */
     }
 }
+
+@media (max-width: 988px) {
+    .line-horizontal-top,
+    .line-vertical,
+    .line-horizontal-bottom {
+        display: none; /* Ocultar líneas en pantallas pequeñas */
+    }
+}
+
