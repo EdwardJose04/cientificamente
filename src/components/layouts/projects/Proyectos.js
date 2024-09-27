@@ -113,8 +113,8 @@ function Proyectos() {
                   className="w-full h-auto object-contain cursor-pointer"
                   onClick={toggleModal}
                 />
-                <button className="absolute top-6 right-2 bg-custom-blue-2 rounded-full p-2 shadow-md" onClick={toggleModal}>
-                  <Play size={16} className="text-white fill-current" />
+                <button className="absolute top-6 right-2 bg-custom-blue-2 animate-pulse rounded-full p-2 shadow-md" onClick={toggleModal}>
+                  <Play size={16} className="text-white pulse fill-current" />
                 </button>
               </div>
             </div>
